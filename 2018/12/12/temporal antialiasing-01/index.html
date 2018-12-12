@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="walking in pixels">
 <meta property="og:description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-12T06:24:22.323Z">
+<meta property="og:updated_time" content="2018-12-12T06:34:44.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Temporal Antialiasing - 01">
 <meta name="twitter:description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T14:24:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-12T14:34:44+08:00">
                 2018-12-12
               </time>
             
@@ -339,12 +339,12 @@
 <p>在静态场景下，不同帧中处于相同位置$(x, y)$处的像素$X_t(x, y)$都是同一个像素中的不同采样点的采样结果，将它们进行加权平均后相当于进行了super sampling。然而，在动态场景（非静态场景）下，当相机运动时，不同帧中同一位置$(x, y)$处的像素$X_t(x, y)$可能不再是同一个像素中的样本点的采样结果。此时，如果将它们的采样结果进行加权平均，则会产生<strong>ghost现象</strong>。</p>
 <h2 id="运动向量"><a href="#运动向量" class="headerlink" title="运动向量"></a>运动向量</h2><p>假设当前帧为第$t$帧，现在我们需要得到位于位置$(x, y)$处的加权平均后的结果$S(x_t, y_t)$，由于</p>
 <p>$$S_t(x, y)=\alpha X_t(x, y) + (1 -\alpha)S_{t-1}(x^{‘}, y^{‘})$$</p>
-<p>，则我们需要找到存储在history buffer $S_{t-1}$中$(x^{‘}, y^{‘})位置的像素点$S_{t-1}(x^{‘}, y^{‘})$。</p>
+<p>，则我们需要找到存储在history buffer $S_{t-1}​$中$(x^{‘}, y^{‘})位置的像素点​$S_{t-1}(x^{‘}, y^{‘})$。</p>
 <p>为了寻找对应的像素位置$(x^{‘}, y^{‘})$，我们只需要将当前帧中处于位置$(x, y)$处的像素的世界坐标$Pos(x, y)$投影到上一帧中即可获得对应的坐标$(x^{‘}, y^{‘})$，公式如下：</p>
 <p>$$(x^{‘}, y^{‘}) = Proj_{t-1} \times View_{t-1} \times Pos_{w}(x, y)$$</p>
 <p>为了获取与像素$S_{t}(x, y)$相对应的像素$S_{t-1}(x^{‘}, y^{‘})$，在GBuffer Pass中，我们可以将两个像素位置之间的差值存储到一个运动向量(motion vector)缓存中。</p>
 <p>$$\overrightarrow{\Delta(x, y)} = \overrightarrow{(x, y)} - \overrightarrow{(x^{‘}, y^{‘})}$$</p>
-<p>通过运动向量缓存，我们可以直接获取到与像素$S_t{x, y}$相对应的像素$S_{t-1}{x^{‘}, y^{‘}}，然后即可将它们加权获得最终的结果$S_t(x, y)$。</p>
+<p>通过运动向量缓存，我们可以直接获取到与像素$S_t(x, y)$相对应的像素$S_{t-1}(x^{‘}, y^{‘})，然后即可将它们加权获得最终的结果$$S_t(x, y)$。</p>
 
       
     </div>
