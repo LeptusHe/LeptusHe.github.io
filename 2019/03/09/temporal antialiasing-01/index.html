@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Graphics,Antialiasing," />
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
+<meta name="keywords" content="Graphics,Antialiasing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Temporal Antialiasing - 01">
 <meta property="og:url" content="http://yoursite.com/2019/03/09/temporal antialiasing-01/index.html">
@@ -89,7 +90,7 @@
 <meta property="og:image" content="http://yoursite.com/image/motion-vector-before.bmp">
 <meta property="og:image" content="http://yoursite.com/image/motion-vector-after.bmp">
 <meta property="og:image" content="http://yoursite.com/image/motion-vector-pattern.bmp">
-<meta property="og:updated_time" content="2019-03-09T08:42:22.099Z">
+<meta property="og:updated_time" content="2019-03-09T12:04:55.443Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Temporal Antialiasing - 01">
 <meta name="twitter:description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
@@ -265,7 +266,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T16:42:22+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T19:30:00+08:00">
                 2019-03-09
               </time>
             
@@ -275,6 +276,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Graphics/" itemprop="url" rel="index">
+                    <span itemprop="name">Graphics</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -349,13 +372,11 @@
 <p>为了获取与像素$S_{t}(x, y)$相对应的像素$S_{t-1}(x^{‘}, y^{‘})​$，在GBuffer Pass中，我们可以将两个像素位置之间的差值存储到一个运动向量(motion vector)缓存中。</p>
 <p>$$\overrightarrow{\Delta(x, y)} = \overrightarrow{(x, y)} - \overrightarrow{(x^{‘}, y^{‘})}$$</p>
 <p>通过运动向量缓存，我们可以直接获取到与像素$S_t(x, y)$相对应的像素$S_{t-1}(x^{‘}, y^{‘})，然后即可将它们加权获得最终的结果$$S_t(x, y)$。</p>
-<h2 id="几何物体边缘的Motion-Vector"><a href="#几何物体边缘的Motion-Vector" class="headerlink" title="几何物体边缘的Motion Vector"></a>几何物体边缘的Motion Vector</h2><p>当相机运动或者场景中的物体运动时，场景中物体的边缘会失去反走样效果。其原因在于物体边缘的pixel丢失了history color。</p>
-<p>我们通过对一种简单的情形进行分析，来对物体边缘pixel丢失history color的情况进行说明。</p>
-<div align="center"><br><img src="/image/motion-vector-before.bmp" alt="图1"><br><img src="/image/motion-vector-after.bmp" alt="图2"><br></div>
-
+<h2 id="几何物体边缘的Motion-Vector"><a href="#几何物体边缘的Motion-Vector" class="headerlink" title="几何物体边缘的Motion Vector"></a>几何物体边缘的Motion Vector</h2><p>当相机运动或者场景中的物体运动时，场景中物体的边缘会失去反走样效果。其原因在于物体边缘的pixel丢失了history color。我们通过对一种简单的情形进行分析，来对物体边缘pixel丢失history color的情况进行说明。</p>
+<div class="group-picture"><div class="group-picture-container"><div class="group-picture-row"><div class="group-picture-column" style="width: 50%;"><img src="/image/motion-vector-before.bmp" width="400" height="400" title="图1-previous frame"></div><div class="group-picture-column" style="width: 50%;"><img src="/image/motion-vector-after.bmp" width="400" height="400" title="图2-current frame"></div></div></div></div>
 <p>如图1与图2所示，蓝色表示物体，白色表背景颜色。每个小矩形代表一个pixel，其中含有四个sample。包围在圆中的sample为当前帧所采样的sample。图1为前一帧的情况，图2为当前帧的情况。物体相对于前一帧而言向右运动了一段距离。</p>
 <p>在当前帧中，对图2中被标记为红色的sample进行分析。该sample所属的pixel位于物体的左边缘，且该红色的sample没有被物体边缘覆盖，所以该sample的motion vector为背景的motion vector。假设背景没有运动，则该motion vector为0，从而导致该sample的history color为图1中的绿色sample的颜色，即背景颜色。则在当前帧中，该pixel的颜色为背景颜色。然而，在当前帧中，如果我们需要物体边缘的pixel具有反走样的效果，其history color应该使用图1中的红色sample位置的历史颜色。通过将图1中的红色sample位置的历史颜色和图2中红色sample的当前颜色进行blending后才能够得到反走样效果。</p>
-<p><img src="/image/motion-vector-pattern.bmp" alt="dilate pattern"></p>
+<img src="/image/motion-vector-pattern.bmp" width="150" height="150" title="图3-dilate pattern">
 <p>为了解决在运动状态下，物体边缘的pixel失去反走样效果的问题。一般而言，对于每个像素，在计算该像素的motion vector时，我们使用该像素邻域范围中深度最小的那个pixel的motion vector作为该pixel的motion vector。如图3所示，当前pixel为图片中心的黑色pixel，我们使用中心的pixel和其邻域中的其他四个黑色pixel的深度进行比较，得到一个最小的深度，该具有最小深度的pixel的motion vector则为中心pixel的motion vector。该方法的主要目的在于，对于某些被多个物体（前景和背景）覆盖的pixel，使用前景的motion vector作为该pixel的motion vector，从而避免出现上述物体边缘的pixel丢失反走样效果的现象。</p>
 
       
@@ -371,6 +392,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Graphics/" rel="tag"># Graphics</a>
+          
+            <a href="/tags/Antialiasing/" rel="tag"># Antialiasing</a>
+          
+        </div>
       
 
       
@@ -473,7 +502,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
