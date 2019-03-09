@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="walking in pixels">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Temporal Antialiasing - 01">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/temporal antialiasing-01/index.html">
 <meta property="og:site_name" content="walking in pixels">
+<meta property="og:description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/image/motion-vector-before.bmp">
+<meta property="og:image" content="http://yoursite.com/image/motion-vector-after.bmp">
+<meta property="og:image" content="http://yoursite.com/image/motion-vector-pattern.bmp">
+<meta property="og:updated_time" content="2019-03-09T08:42:22.099Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="walking in pixels">
+<meta name="twitter:title" content="Temporal Antialiasing - 01">
+<meta name="twitter:description" content="走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。 对于几何走样问题，实时渲染算法中已经存在">
+<meta name="twitter:image" content="http://yoursite.com/image/motion-vector-before.bmp">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/temporal antialiasing-01/"/>
 
 
 
 
 
-  <title>walking in pixels</title>
+  <title>Temporal Antialiasing - 01 | walking in pixels</title>
   
 
 
@@ -140,8 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +221,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/09/temporal antialiasing-01/" itemprop="url">Temporal Antialiasing - 01</a></h1>
+          <h1 class="post-title" itemprop="name headline">Temporal Antialiasing - 01</h1>
         
 
         <div class="post-meta">
@@ -280,6 +285,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
 
           
 
@@ -298,9 +308,7 @@
       
 
       
-        
-          
-            <p>走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。</p>
+        <p>走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。</p>
 <p>对于几何走样问题，实时渲染算法中已经存在的一系列算法，比如MSAA，FXAA等，都能够有效地解决该问题。然而，这些算法对于shading走样问题没有很好的效果。在离线渲染中，super sampling一直都是被普遍应用的一种反走样算法。该算法能够有效地解决几何走样和shading走样问题。然而，由于实时渲染对于算法效率的要求，这导致在实时渲染中应用super sampling算法变得不现实。</p>
 <p>Super sampling算法的主要缺点在于该算法的效率不高，如何能够提高super sampling算法的效率成为了一个需要考虑的问题。通常而言，如果需要提高一个算法的效率，人们的主要考虑是否能够利用某些还没有利用的信息来减少算法中的计算量。对于实时渲染而言，一个可以被利用的信息是帧与帧之间的数据的重用。由于实时渲染每秒至少渲染30帧，从而导致帧与帧之间有大部分的像素信息基本是相同的。因此，如何重用这些帧与帧基本相同的像素信息是解决super sampling效率低下的一个方向。</p>
 <p>Temporal antialiasing可以说就是在这种思想下出现的一种反走样算法，与其他利用空间信息来进行反走样的算法不同，该算法利用了帧与帧之间的信息来实现反走样。</p>
@@ -350,8 +358,6 @@
 <p><img src="/image/motion-vector-pattern.bmp" alt="dilate pattern"></p>
 <p>为了解决在运动状态下，物体边缘的pixel失去反走样效果的问题。一般而言，对于每个像素，在计算该像素的motion vector时，我们使用该像素邻域范围中深度最小的那个pixel的motion vector作为该pixel的motion vector。如图3所示，当前pixel为图片中心的黑色pixel，我们使用中心的pixel和其邻域中的其他四个黑色pixel的深度进行比较，得到一个最小的深度，该具有最小深度的pixel的motion vector则为中心pixel的motion vector。该方法的主要目的在于，对于某些被多个物体（前景和背景）覆盖的pixel，使用前景的motion vector作为该pixel的motion vector，从而避免出现上述物体边缘的pixel丢失反走样效果的现象。</p>
 
-          
-        
       
     </div>
     
@@ -368,161 +374,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/13/编写可测试的代码-依赖注入/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leptus">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="walking in pixels">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/13/编写可测试的代码-依赖注入/" itemprop="url">编写可测试的代码-依赖注入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-13T15:42:42+08:00">
-                2018-12-13
-              </time>
+              <a href="/2018/12/13/编写可测试的代码-依赖注入/" rel="next" title="编写可测试的代码-依赖注入">
+                <i class="fa fa-chevron-left"></i> 编写可测试的代码-依赖注入
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>在代码中，类与类、类与方法或者其他软件实体之间总是存在着某些依赖关系。例如，假设某个类$A$的对象$a$需要完成某个功能，然而，它需要通过与类$B$的对象$b$的协作才能够完成该功能。在这个过程中，类$B$则成为类$A$的一个依赖。类$B$的对象$b$则成为了一个service对象（服务的提供者），类$A$的对象$a$则是一个client对象（服务的使用者）。</p>
-<p>在编写代码时，如果类$A$对类$B$存在依赖，即类$A$完成某个功能需要类$B$提供的某项服务。那么，我们就需要思考一个问题—我们该如何获得一个提供类$A$所需要的服务的对象呢？</p>
-<h1 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h1><hr>
-<p>在一般情况下，类$A$可能会自己创建一个能够提供其所需要的服务的对象，即new出一个提供服务的对象。然而，这种方式存在着一些问题。如果类$A$的代码中采用了new一个提供服务的对象的方式来获得一个service对象，那么这些代码就是存在耦合的，它违背了面向对象编程中的开闭原则(open/closed principle)。因为，如果存在其他能够提供相同服务的类$C$对象，并且类$A$想要使用类$C$对象来作为service对象，那么我们就需要修改类$A$的代码。这时，代码就不再满足”对扩展是开放的，对修改是关闭的“这两个特征了。</p>
-<p>在进行单元测试时，被测试类为了完成某个功能可能需要与其他对象进行协作，例如通过文件系统读取文件或者通过数据库系统获取数据。然而，为了保证单元测试的独立性和可重复性，我们一般都会使用mock对象来替代被测试类所依赖的对象，即service对象。通过这种方式，单元测试的正确性只有被测试类有关，而与被依赖的对象无关。因为如果测试结果依赖于某个外部依赖，例如数据库系统，那么每次的测试结果都可能由于数据库的状态不一样从而导致测试结果不一样，这样就无法保证测试的可重复性和独立性了。</p>
-<p>然而，如果被测试类的client代码中存在直接通过new的方式获得service对象的代码，由于service对象无法被替换，那么通过mock对象替换被依赖对象的方法就无法使用了，从而会导致了我们无法写出具有独立性和可重复性的单元测试。我们称这段client代码为不可测试的代码。</p>
-<p>为了解决上述所讲的client对象和service对象的耦合问题，我们可以使用一种称为<strong>依赖注入（dependency injection）</strong>的技术。依赖注入是一种将client对象所依赖的service对象注入到client对象中的技术。通过依赖注入技术，client代码中就不再需要直接通过new的方式来获得service对象了，而是通过由其他代码将service对象注入到client对象中的方式来获得service对象，这就解决了client对象和service对象的耦合问题。在面向对象设计中，这样的代码也是满足了开闭原则的，具有可扩展性。在单元测试中，mock对象就能够通过注入的方式来替换实际的service对象，这样也能够保证我们写出的测试具有独立性和可重复性。这样的代码也称为可测试的代码。</p>
-<h1 id="依赖注入的方式"><a href="#依赖注入的方式" class="headerlink" title="依赖注入的方式"></a>依赖注入的方式</h1><hr>
-<p>一般而言，将依赖注入的方式具有两种：</p>
-<ul>
-<li>constructor注入</li>
-<li>setter注入</li>
-</ul>
-<p>以下以一个简单的例子来介绍这两种注入方式：</p>
-<p>假设存在一个ModelManager，该类负责从磁盘加载一个model文件并创建出一个Model类对象，然而因为Model类对象是由多个&lt;mesh, material&gt;对构成的，所以ModelManager无法直接创建Mesh类对象和Material类对象，所以其需要其他对象来创建Mesh类对象和Material类对象，MeshManager类负责从磁盘加载一个mesh文件并创建一个Mesh对象，MaterialManager类负责从磁盘加载一个material文件并创建一个material对象。所以，ModelManager需要MeshManager与MaterialManager的协助才能够完成该功能，即MeshManager和MaterialManager是ModelManager的两个依赖。</p>
-<p>以下以这个例子来进行两种注入方式的说明：</p>
-<h2 id="Constructor注入"><a href="#Constructor注入" class="headerlink" title="Constructor注入"></a>Constructor注入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class ModelManager &#123;</span><br><span class="line">public:</span><br><span class="line">    ModelManager(MeshManager *meshManager, MaterialManager *materialManager)</span><br><span class="line">        : mMeshManager(meshManager), mMaterialManager(materialManager)</span><br><span class="line">    &#123;</span><br><span class="line">        if (!meshManager) &#123;</span><br><span class="line">            throw std::exception(&quot;mesh mananger must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!materialManager) &#123;</span><br><span class="line">            throw std::exception(&quot;material manager must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Model loadModel(const std::string&amp; filePath) &#123;</span><br><span class="line">        // load model by mMeshManager and mMaterialManager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    MeshManager *mMeshManager;</span><br><span class="line">    MaterialManager *mMaterialManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Constructor注入方法是通过将service对象作为constructor的参数来将依赖注入到client类中的。因此，注入的依赖成为了client的状态的一部分。一般而言，如果依赖能够在调用constructor前构造出来，constructor注入方法是首选的依赖注入方法。因为在constructor被调用后，client对象所需要的依赖都已经被满足了，所以constructor注入方法能够保证client对象总是处于一个合法的状态。</p>
-<p>Constructor注入的缺点在于缺乏灵活性。当client对象被构造后，它的依赖，即service对象就无法被更改了。在某些情况下，当client对象被构造后，client对象所依赖的service对象可能需要被修改。此时，constructor注入就无法解决这个问题。</p>
-<h2 id="Setter注入"><a href="#Setter注入" class="headerlink" title="Setter注入"></a>Setter注入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class ModelManager &#123;</span><br><span class="line">public:</span><br><span class="line">    ModelManager() : mMeshManager(nullptr), mMaterialManager(nullptr) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    void setMeshManager(MeshManager *meshManager) &#123; mMeshManager = meshManager;  &#125;</span><br><span class="line">    void setMaterialManager(MaterialManager *materialManager) &#123; mMaterialManager = materialManager; &#125;</span><br><span class="line"></span><br><span class="line">    Model loadModel(const std::string&amp; filePath) &#123;</span><br><span class="line">        validateState();</span><br><span class="line">        // load model by mMeshManager and mMaterialManager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    bool validateState() const &#123;</span><br><span class="line">        if (!meshManager) &#123;</span><br><span class="line">            throw std::exception(&quot;mesh mananger must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!materialManager) &#123;</span><br><span class="line">            throw std::exception(&quot;material manager must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    MeshManager *mMeshManager;</span><br><span class="line">    MaterialManager *mMaterialManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Setter注入方法主要是通过提供一个setter函数来注入依赖。它的优点在于能够灵活地注入service对象。在任意时刻，client对象所依赖的service对象都能够被更改。然而，由于service对象的注入时间不确定，从而导致在需要使用service对象时，client对象都需要查看service对象是否已经被注入。当需要使用service对象，而其未被注入时，client对象就处于不合法的状态，导致我们需要编写额外的代码来对这种情况进行处理，从而增加了代码量和其他负担。</p>
-<h2 id="Constructor注入和Setter注入的结合"><a href="#Constructor注入和Setter注入的结合" class="headerlink" title="Constructor注入和Setter注入的结合"></a>Constructor注入和Setter注入的结合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class ModelManager &#123;</span><br><span class="line">public:</span><br><span class="line">    ModelManager(MeshManager *meshManager, MaterialManager *materialManager)</span><br><span class="line">        : mMeshManager(meshManager), mMaterialManager(materialManager)</span><br><span class="line">    &#123;</span><br><span class="line">        if (!meshManager) &#123;</span><br><span class="line">            throw std::exception(&quot;mesh mananger must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (!materialManager) &#123;</span><br><span class="line">            throw std::exception(&quot;material manager must not be null&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void setMeshManager(MeshManager *meshManager) &#123;</span><br><span class="line">        assert(meshManager != nullptr);</span><br><span class="line">        mMeshManager = meshManager;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     void seaMaterialManager(MaterialManager *materialManager) &#123;</span><br><span class="line">        assert(mMaterialManager != nullptr);</span><br><span class="line">        mMaterialManager = materialManager;</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    Model loadModel(const std::string&amp; filePath) &#123;</span><br><span class="line">        // load model by mMeshManager and mMaterialManager</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">    MeshManager *mMeshManager;</span><br><span class="line">    MaterialManager *mMaterialManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过结合constructor注入和setter注入方法，我们能够同时拥有两种注入方法的优点，并没有了两种注入方式的缺点。如上所示，在client对象被构造后，其处于一个合法的状态。并且，通过setter函数能够随时替换service对象并保持client对象状态的合法性。</p>
-<p>通过两种注入方式的结合，在使用service对象时，我们总能够确保service对象时存在的，从而不用进行验证查找service对象是否存在，进而避免了需要编写异常处理代码的需要。</p>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><hr>
-<ol>
-<li><a href="https://en.wikipedia.org/wiki/Dependency_injection" target="_blank" rel="noopener">Dependency injection[wiki]</a></li>
-<li><a href="https://agostini.tech/2017/03/27/using-dependency-injection/" target="_blank" rel="noopener">Using Dependency Injection[Dejan Agostini][2017]</a></li>
-<li><a href="https://agostini.tech/2017/04/24/unit-tests-with-dependency-injection/" target="_blank" rel="noopener">Unit Tests with Dependency Injection[Dejan Agostini][2017]</a></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -532,10 +405,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -543,6 +417,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -563,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -606,6 +493,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#静态场景下的TAA"><span class="nav-number">1.</span> <span class="nav-text">静态场景下的TAA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#样本的生成"><span class="nav-number">1.1.</span> <span class="nav-text">样本的生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样本的投影矩阵"><span class="nav-number">1.2.</span> <span class="nav-text">样本的投影矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样本结果的加权平均"><span class="nav-number">1.3.</span> <span class="nav-text">样本结果的加权平均</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态场景下的TAA"><span class="nav-number">2.</span> <span class="nav-text">动态场景下的TAA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Motion-Vector"><span class="nav-number">2.1.</span> <span class="nav-text">Motion Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几何物体边缘的Motion-Vector"><span class="nav-number">2.2.</span> <span class="nav-text">几何物体边缘的Motion Vector</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -759,6 +662,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
