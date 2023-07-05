@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>球谐函数 - 01 函数拟合 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="计算机应用常常需要使用简单函数的线性组合来拟合某个复杂函数。例如，在游戏开发中，为了实现某些渲染效果，通常会在shader中使用到正弦函数。但是，由于GPU计算正弦函数的指令数较多，性能开销比较高，开发者通常会考虑使用多项式函数$x^{n}$的线性组合来拟合正弦函数，从而减少计算指令数，提高渲染性能。 假设我们需要计算正弦函数$f(x) &#x3D; \sin(x)$在区间$\lbrack - \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="球谐函数 - 01 函数拟合">
+<meta property="og:url" content="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="计算机应用常常需要使用简单函数的线性组合来拟合某个复杂函数。例如，在游戏开发中，为了实现某些渲染效果，通常会在shader中使用到正弦函数。但是，由于GPU计算正弦函数的指令数较多，性能开销比较高，开发者通常会考虑使用多项式函数$x^{n}$的线性组合来拟合正弦函数，从而减少计算指令数，提高渲染性能。 假设我们需要计算正弦函数$f(x) &#x3D; \sin(x)$在区间$\lbrack - \">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/image/spherical-harmonics/01-function-fitting/sin-fitting-4.png">
+<meta property="og:image" content="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/image/spherical-harmonics/01-function-fitting/sin-fitting-6.png">
+<meta property="og:image" content="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/image/spherical-harmonics/01-function-fitting/sin-fitting-6-local.png">
+<meta property="article:published_time" content="2023-07-04T13:01:14.000Z">
+<meta property="article:modified_time" content="2023-07-05T12:12:49.618Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/image/spherical-harmonics/01-function-fitting/sin-fitting-4.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-spherical-harmonics-01-function-fitting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/04/spherical-harmonics-01-function-fitting/" class="article-date">
+  <time class="dt-published" datetime="2023-07-04T13:01:14.000Z" itemprop="datePublished">2023-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      球谐函数 - 01 函数拟合
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>计算机应用常常需要使用简单函数的线性组合来拟合某个复杂函数。例如，在游戏开发中，为了实现某些渲染效果，通常会在shader中使用到正弦函数。但是，由于GPU计算正弦函数的指令数较多，性能开销比较高，开发者通常会考虑使用多项式函数$x^{n}$的线性组合来拟合正弦函数，从而减少计算指令数，提高渲染性能。</p>
+<p>假设我们需要计算正弦函数$f(x) &#x3D; \sin(x)$在区间$\lbrack - \pi,\pi\rbrack$上的值。为了减少性能开销，我们考虑使用多项式函数$x^{n}$的线性组合来逼近函数$\sin(x)$，如<a href="#approxsin">[approxsin]</a>{.ref}<br>所示。</p>
+<p>$$\overset{\sim}{f}(x) &#x3D; \sum_{i &#x3D; 0}^{n}c_{i}x^{i}$$</p>
+<p>线性组合系数$c_{i}$的取值应该使得函数$f(x)$与$\overset{\sim}{f}(x)$之间的误差最小。因此，我们先定义误差函数$g(x)$，然后求得误差函数$g(x)$的最小值点，即可以得到线性组合系数$c_{i}$。</p>
+<p>$$g(x) &#x3D; \int_{- 2\pi}^{2\pi}\left( f(x) - \overset{\sim}{f}(x) \right)^{2}$$</p>
+<p>由于函数$g(x)$的最小值点必定在极小值点取得，因此求函数$g(x)$的最小值点的一种方法是，求$g(x)$的导数为0的点。另外，我们还可以使用其他方法来求解系数$c_{i}$，该方法称为<br>最小二乘投影，这是后面重点介绍的方法。</p>
+<p>对于函数$\sin(x)$，我们可以使用多项式函数$P_{i}(x)$的线性组合来拟合，其中$P_{i}(x)$的定义如公式所示。</p>
+<p>$$\begin{cases}<br>P_{0}(x) &#x3D; \frac{1}{\sqrt{2\pi}} \<br>P_{1}(x) &#x3D; \frac{\sqrt{\frac{3}{2}}x}{\pi^{\frac{3}{2}}} \<br>P_{2}(x) &#x3D; \frac{3\sqrt{\frac{5}{2}}\left( x^{2} - \frac{\pi^{2}}{3} \right)}{2\pi^{\frac{5}{2}}} \<br>P_{3}(x) &#x3D; \frac{5\sqrt{\frac{7}{2}}\left( x^{3} - \frac{3\pi^{2}x}{5} \right)}{2\pi^{\frac{7}{2}}} \<br> \vdots<br>\end{cases}$$</p>
+<p>所有在区间$\lbrack - \pi,\pi\rbrack$上有定义的一元连续函数能够构成函数空间$L(R)$，而函数$P_{i}(x)$是该函数空间中的基函数。这意味着函数空间$L(R)$中的任意函数，都可以使用基函数$P_{i}(x)$的线性组合来表示，即</p>
+<p>$$\sin(x) &#x3D; \sum_{i &#x3D; 0}^{\infty}c_{i}P_{i}(x)$$</p>
+<p>虽然函数$\sin(x)$需要使用无穷项基函数$P_{i}(x)$的线性组合来表示，但是实际上，我们取基函数的前$n$项也能够很好地来拟合函数$\sin(x)$。为了方便起见，我们取前$4$项基函数$P_{i}(x)$的线性组合来进行拟合，可以表示为：</p>
+<p>$$\sin(x) \approx \overset{\sim}{f}(x) &#x3D; \sum_{i &#x3D; 0}^{3}c_{i}P_{i}(x)$$</p>
+<p>另外，由于函数空间的基函数会满足正交性质，则函数$P_{i}(x)$应该满足性质：</p>
+<p>$$\int_{- \pi}^{\pi}P_{i}(x)P_{j}(x)dx &#x3D; \delta_{i,j}$$</p>
+<p>其中$\delta_{i,j}$的定义如下：</p>
+<p>$$\delta_{i,j} &#x3D; \begin{cases}<br>1\quad\text{ if  }i \neq j \<br>0\quad\text{ if  }i &#x3D; j<br>\end{cases}$$</p>
+<p>基于多项式函数$P_{i}(x)$的正交性，我们可以通过以下公式求得线性组合系数$c_{i}$：<br>$$c_{i} &#x3D; \int_{- \pi}^{\pi}\sin(x)P_{i}(x)dx$$ [] &amp;#123 #coefficient &amp;#125</p>
+<p><a href="#coefficient">[coefficient]</a>{.ref} 的证明如下： $$\begin{aligned}<br>c_{i} &amp; &#x3D; \int_{- \pi}^{\pi}\sin(x)P_{i}(x)dx \<br> &amp; &#x3D; \int_{\pi}^{\pi}\left( \sum_{k &#x3D; 0}^{\infty}c_{k}P_{k}(x) \right)P_{i}(x)dx \<br> &amp; &#x3D; \int_{\pi}^{\pi}\sum_{k &#x3D; 0}^{\infty}\left( c_{k}P_{k}(x)P_{i}(x) \right)dx \<br> &amp; &#x3D; c_{i}\int_{\pi}^{\pi}P_{i}^{2}(x)dx \<br> &amp; &#x3D; c_{i}<br>\end{aligned}$$</p>
+<p>通过 <a href="#coefficient">[coefficient]</a>{.ref}<br>，我们可以得到函数$\overset{\sim}{f}(x)$中的系数如下：<br>$$c_{0} &#x3D; 1,c_{1} &#x3D; 0,c_{2} &#x3D; \sqrt{\frac{6}{\pi}},c_{3} &#x3D; 0$$</p>
+<p>带入到<br><a href="#approx-eq">[approx-eq]</a>{.ref}，可以得到函数$\overset{\sim}{f}(x)$的公式如下：</p>
+<p>$$\begin{aligned}<br>\overset{\sim}{f}(x) &amp; &#x3D; \left( \frac{315}{2\pi^{4}} - \frac{15}{2\pi^{2}} \right)x + \left( \frac{35}{2} - \frac{525}{2\pi^{6}} \right)x^{3} \<br> &amp; \approx 0.856983x - 0.0933877x^{3}<br>\end{aligned}$$</p>
+<p><a href="#img-sin-fitting-4">[img-sin-fitting-4]</a>{.ref}是函数$\sin(x)$与$\overset{\sim}{f}(x)$在区间$\lbrack - \pi,\pi\rbrack$的图像，其中黄色曲线为函数$\sin(x)$，绿色曲线为函数$\overset{\sim}{f}(x)$。可以看到，函数$\overset{\sim}{f}(x)$能够较好地拟合函数$\sin(x)$。</p>
+<figure>
+<p><img src="image/spherical-harmonics/01-function-fitting/sin-fitting-4.png" style="width:60.0%" /></p>
+<figcaption><p>正弦函数拟合 - 4项</p></figcaption>
+</figure>
+
+
+[]{#img-sin-fitting-4}
+
+
+<p>事实上，通过增加多项式函数$P_{i}(x)$的数量，我们可以不断地提高函数$\overset{\sim}{f}(x)$对函数$f(x)$的拟合程度。当多项式的数量是$6$个时，即函数$\overset{\sim}{f}(x) &#x3D; \sum_{i &#x3D; 0}^{5}c_{i}P_{i}(x)$时，函数图像如<br><a href="#img-sin-fitting-6-term">[img-sin-fitting-6-term]</a>{.ref}<br>所示。从图像可以看出，函数$\sin(x)$与$\overset{\sim}{f}(x)$的曲线几乎一致。我们取<br><a href="#img-sin-fitting-6-term">[img-sin-fitting-6-term]</a>{.ref}<br>中的局部区间$\left\lbrack \frac{3\pi}{10},\frac{7\pi}{10} \right\rbrack$，如<br><a href="#img-sin-fitting-6-term-local">[img-sin-fitting-6-term-local]</a>{.ref}<br>所示，可以看到函数$\sin(x)$与$\overset{\sim}{f}(x)$的曲线误差也很小。事实上，通过增加多项式函数$P_{i}(x)$的数量，我们可以不断地提高函数$\overset{\sim}{f}(x)$对函数$f(x)$的拟合程度。当多项式的数量是$6$个时，即函数$\overset{\sim}{f}(x) &#x3D; \sum_{i &#x3D; 0}^{5}c_{i}P_{i}(x)$时，函数图像如<br><a href="#img-sin-fitting-6-term">[img-sin-fitting-6-term]</a>{.ref}</p>
+<figure>
+<p><img src="image/spherical-harmonics/01-function-fitting/sin-fitting-6.png" style="width:60.0%" /></p>
+<figcaption><p>正弦函数拟合 - 6项</p></figcaption>
+</figure>
+
+
+[]{#img-sin-fitting-6-term}
+
+
+<p>当函数$\overset{\sim}{f}(x)$中多项式函数$P_{i}(x)$的项数趋于无穷时，其极限为$\sin(x)$，能够完美地拟合函数$\sin(x)$。</p>
+<figure>
+<p><img src="image/spherical-harmonics/01-function-fitting/sin-fitting-6-local.png"
+style="width:60.0%" /></p>
+<figcaption><p>正弦函数拟合(局部) - 6项</p></figcaption>
+</figure>
+
+
+[]{#img-sin-fitting-6-term-local}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/" data-id="cljpojbqa0000j2pz91zg1s3h" data-title="球谐函数 - 01 函数拟合" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/11/temporal-antialiasing-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Temporal Antialiasing - 02</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Test/">Unit Test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antialiasing/" rel="tag">Antialiasing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphics/" rel="tag">Graphics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit Test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Antialiasing/" style="font-size: 20px;">Antialiasing</a> <a href="/tags/Graphics/" style="font-size: 20px;">Graphics</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/04/spherical-harmonics-01-function-fitting/">球谐函数 - 01 函数拟合</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/11/temporal-antialiasing-02/">Temporal Antialiasing - 02</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/09/temporal-antialiasing-01/">Temporal Antialiasing - 01</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">编写可测试的代码-依赖注入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

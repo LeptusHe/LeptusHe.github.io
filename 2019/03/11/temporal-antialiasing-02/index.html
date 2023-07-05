@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Temporal Antialiasing - 02 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="History Color失效的情况 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history color。然而，并不是在任何情况下，history color都是正确的。 相机&#x2F;物体运动导致的history color失效如图1所示，当相机在场景中运动时，当前帧中，某个pixel对应的场景采样点为红色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Temporal Antialiasing - 02">
+<meta property="og:url" content="http://example.com/2019/03/11/temporal-antialiasing-02/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="History Color失效的情况 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history color。然而，并不是在任何情况下，history color都是正确的。 相机&#x2F;物体运动导致的history color失效如图1所示，当相机在场景中运动时，当前帧中，某个pixel对应的场景采样点为红色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/image/occlusion-history-color.bmp">
+<meta property="og:image" content="http://example.com/image/flicking.bmp">
+<meta property="article:published_time" content="2019-03-11T21:30:00.000Z">
+<meta property="article:modified_time" content="2023-07-05T12:12:49.618Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Graphics">
+<meta property="article:tag" content="Antialiasing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/occlusion-history-color.bmp">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-temporal-antialiasing-02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2019/03/11/temporal-antialiasing-02/" class="article-date">
+  <time class="dt-published" datetime="2019-03-11T21:30:00.000Z" itemprop="datePublished">2019-03-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Graphics/">Graphics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Temporal Antialiasing - 02
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="History-Color失效的情况"><a href="#History-Color失效的情况" class="headerlink" title="History Color失效的情况"></a>History Color失效的情况</h1><hr>
+<p>当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history color。然而，并不是在任何情况下，history color都是正确的。</p>
+<h3 id="相机-x2F-物体运动导致的history-color失效"><a href="#相机-x2F-物体运动导致的history-color失效" class="headerlink" title="相机&#x2F;物体运动导致的history color失效"></a>相机&#x2F;物体运动导致的history color失效</h3><p>如图1所示，当相机在场景中运动时，当前帧中，某个pixel对应的场景采样点为红色点，为了得到该采样点的history color，我们使用上一帧的MVP矩阵来将 该红色采样点投影到屏幕空间中后，然而，history buffer中该屏幕空间位置中存储的history color为绿色采样点的history color，然而我们需要的是红色采样点的history color，从而导致我们获得了一个invalid的history color。</p>
+<img src="/image/occlusion-history-color.bmp" class="" width="500" height="500" title="图1-被遮挡的fragment">
+
+<p>上述情况产生的根本原因在于某些fragment在当前帧可见，然而在上一帧不可见。导致该情况的原因可能是相机的运动或者物体的运动。例如，当相机运动速度较快时，屏幕边缘处的fragment就会在上一帧中不可见，从而导致history buffer中没有存储这些fragment的history color。</p>
+<h3 id="Shading导致的history-color失效"><a href="#Shading导致的history-color失效" class="headerlink" title="Shading导致的history color失效"></a>Shading导致的history color失效</h3><p>当物体或者相机运动时，可能会导致当前帧中的某个fragment的history color没有被存储在history buffer中，从而导致获得的history color是无效的。</p>
+<p>然而，即使我们能够在history buffer中获取到某个fragment对应的history color，该history color依然可能无效。假设在上一帧中某个fragment被一个红色的光源照亮，然而在当前帧中该光源颜色变为绿色，从而会导致该fragment的颜色由于shading的变化而不同。最终导致，上一帧的history color不可用，即history color无效。</p>
+<p>导致shading的变化原因有很多，例如：</p>
+<ul>
+<li>光照环境的改变(光源颜色变化、光源开关等)</li>
+<li>阴影的变化（是否处于阴影中）</li>
+<li>半透明物体的影响</li>
+</ul>
+<p>任何会对导致pixel的颜色产生变化的因素都可能会导致history color变得无效。</p>
+<h1 id="History-Color失效后的处理"><a href="#History-Color失效后的处理" class="headerlink" title="History Color失效后的处理"></a>History Color失效后的处理</h1><hr>
+<p>当history color失效后，我们需要对这种情况进行相应的处理。一种处理方法是丢弃history color，然后直接使用当前帧的颜色作为最终的颜色。然而，该方法会导致pixel失去反走样效果。</p>
+<p>另一种处理方式是使用neighborhood clamping方法来进行处理。该方法的基本思想是通过当前帧pixel的一个邻域范围内的像素，来在颜色空间中构造一个颜色范围，然后将history color的大小限制在该范围之中。该方法的基本的假设是——某个pixel反走样后的颜色基本与该pixel邻域范围内pixel颜色的blending结果相同。如果该假设成立，则将history color限制在邻域pixel构成的颜色范围中是一种正确的做法。然而，当pixel中存在sub-pixel feature时，该假设无法成立。</p>
+<p>Neighborhood Clamping方法中首先需要根据pixel的邻域颜色来构建一个颜色空间范围，如果我们使用凸包来构造一个颜色空间范围，则我们可以获得一个最小的颜色空间范围。然而，该方法过于复杂，容易造成效率问题。</p>
+<p>另一种构造颜色范围的方法是使用axis-aligned bounding box(AABB)。通过使用pixel的邻域颜色来构建一个AABB，则可以构造出一个较紧的颜色范围。并且，我们可以将pixel的颜色从RGB颜色空间转换到YCoCg空间后，再在YCoCg颜色空间构造一个AABB。这是因为YCoCg颜色空间能够体现颜色的亮度差异。</p>
+<p>当history color不在AABB范围中时，一种处理方式是将history color进行clamping，即</p>
+<pre><code>historyColor = clamp(historyColor, minColor, maxColor);
+</code></pre>
+<p>另一种处理方式是使用cliping操作，即计算pixel和history color所连接形成的线段与AABB的交点。相比较于clamping操作而言，cliping得到的颜色是pixel和history color的一个插值，与pixel的颜色更相似。</p>
+<h1 id="Flicking问题"><a href="#Flicking问题" class="headerlink" title="Flicking问题"></a>Flicking问题</h1><hr>
+<p>在使用neighborhood clamp方法后，场景中可能会有pixel的闪烁问题。即使当相机与物体静止，pixel的闪烁问题依然可能存在。导致闪烁发生的主要原因在于，场景中存在sub-pixel feature，从而导致neighborhood clamp方法的基本假设无法成立。举一个例子来对该情况进行说明。</p>
+<img src="/image/flicking.bmp" class="" width="500" height="500" title="图2-flicking">
+
+<p>如图所示，previous frame的pixel的颜色为红色$(1,0,0)$，并且其邻域颜色构成的AABB中的$minColor &#x3D; (1,0,0)$，$maxColor&#x3D;(1,1,1)$。假设previous frame的历史颜色为红色$(1,0,0)$，则经过neighborhood clamp操作处理后，history color依然为红色，则最终的结果为红色$(1,0,0)$。在current frame时，由于sample的变化，导致当前的pixel颜色变为白色$(1,1,1)$，并且邻域颜色构成的AABB中的$minColor&#x3D;(1,1,1)$，$maxColor&#x3D;(1,1,1)$，经过neighborhood clamp操作处理后history color变为白色$(1,1,1)$，则最终经过blending后的颜色为白色$(1,1,1)$。通过上面简单的例子可以看出，当场景中存在sub-pixel feature时，即使在静态场景下，像素颜色也会存在帧间变化从而导致闪烁问题的发生。</p>
+<h1 id="模糊问题"><a href="#模糊问题" class="headerlink" title="模糊问题"></a>模糊问题</h1><hr>
+<p>Temporal Antialiasing算法存在的另一个问题是模糊问题。当使用了TAA算法后，渲染出来的图片可能会存在一些模糊。导致该问题的原因主要有以下三个：</p>
+<ul>
+<li>使用了错误的mipmap level</li>
+<li>reprojection diffusion</li>
+<li>对无效的history color进行blending</li>
+</ul>
+<p>由于mipmap level与图片的分辨率有关，且temporal antialiasing算法在每一帧中采样pixel中的一个sample，从而导致在计算mipmap level时使用的分辨率是屏幕的分辨率。然而，由于temporal antialiasing算法与super sampling算法类似，实际上在计算mipmap level时应该使用super sampling的分辨率，从而导致mipmap的level计算错误。Mipmal level的计算错误可以通过对计算得到的mipmap level增加一个bias来解决。</p>
+<p>Reprojection diffusion问题的产生是由于对history buffer进行重采样从而导致的。在对history buffer进行重采样时，采样的位置可能并不在history buffer中的像素中心位置，从而导致采样得到的颜色是对history buffer重构的结果，即是插值出来。该插值出来的像素由于不是一个正确的像素颜色，而是插值出来的，则该插值出来的history color则带有一些模糊的效果，从而会导致blending了该history color的pixel具有模糊效果。并且，由于history buffer是不断累积的，会更加剧这个问题。解决该问题的一个方法是使用更好的重构方法来代替线性插值方法，来使得插值出来的pixel更加锐利。例如，使用Catmull-Rom插值方法来进行插值。</p>
+<p>与混合了插值出来的history color类似的原因。当history color无效时，最终的pixel由于混合了无效的history color，也会导致blending后的pixel带有模糊的效果。</p>
+<p>另外，为了减轻TAA导致的模糊问题，我们可以通过为当前帧得到的颜色纹理增加一个sharepen filter来减轻该问题。</p>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><hr>
+<ol>
+<li>[High-Quality Temporal Super Sampling<a target="_blank" rel="noopener" href="http://advances.realtimerendering.com/s2014/">Siggraph 2014]</a></li>
+<li>[Temporal Super Sampling and Antialiasing<a target="_blank" rel="noopener" href="https://bartwronski.com/2014/03/15/temporal-supersampling-and-antialiasing/">2014]</a></li>
+<li>[Temporal Reprojection Anti-Aliasing in INSIDE<a target="_blank" rel="noopener" href="http://twvideo01.ubm-us.net/o1/vault/gdc2016/Presentations/Pedersen_LasseJonFuglsang_TemporalReprojectionAntiAliasing.pdf">GDC][2016]</a></li>
+<li>[An Excursion in Temporal Super Sampling<a target="_blank" rel="noopener" href="https://developer.download.nvidia.com/gameworks/events/GDC2016/msalvi_temporal_supersampling.pdf">GDC][2016]</a></li>
+<li>[Amortized Super Sampling<a target="_blank" rel="noopener" href="http://hhoppe.com/supersample.pdf">Siggraph Asia 2009]</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2019/03/11/temporal-antialiasing-02/" data-id="cljpojbqk0002j2pzhgo0ep4f" data-title="Temporal Antialiasing - 02" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Antialiasing/" rel="tag">Antialiasing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graphics/" rel="tag">Graphics</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/07/04/spherical-harmonics-01-function-fitting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          球谐函数 - 01 函数拟合
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/09/temporal-antialiasing-01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Temporal Antialiasing - 01</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Graphics/">Graphics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unit-Test/">Unit Test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Antialiasing/" rel="tag">Antialiasing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graphics/" rel="tag">Graphics</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unit-Test/" rel="tag">Unit Test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Antialiasing/" style="font-size: 20px;">Antialiasing</a> <a href="/tags/Graphics/" style="font-size: 20px;">Graphics</a> <a href="/tags/Unit-Test/" style="font-size: 10px;">Unit Test</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/04/spherical-harmonics-01-function-fitting/">球谐函数 - 01 函数拟合</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/11/temporal-antialiasing-02/">Temporal Antialiasing - 02</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/09/temporal-antialiasing-01/">Temporal Antialiasing - 01</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">编写可测试的代码-依赖注入</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
