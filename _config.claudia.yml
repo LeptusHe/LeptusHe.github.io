@@ -13,25 +13,25 @@ widgets:
 
 # social config
 social:
-  zhihu:
+  zhihu: /
   twitter: /
   facebook: /
   linkedin:
   instagram: /
-  github: haojen
+  github: LeptusHe
 
 user:
-  name: Haojen
+  name: Leptus He
   avatar:
-  location: In the dust
-  description: May the Force be with you
+  location: SiChuan, China
+  description: walking in pixels
   footnotes: # footnotes
 
 # documents: https://github.com/utterance/utterances
 # API config: https://utteranc.es/
 comment_utteranc:
   enable: true
-  repo: Haojen/Claudia-theme-blog # your blog repo
+  repo: LeptusHe/LeptusHe.github.io.git # your blog repo
 
 
 # documents: https://valine.js.org/quickstart.html
@@ -48,7 +48,7 @@ comment_disqus:
 # dark
 # light
 # user-can-set
-appearance: auto # Default value is auto
+appearance: dark # Default value is auto
 
 # Miscellaneous
 favicon: images/favicon.ico
