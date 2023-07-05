@@ -3,13 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: walking in pixels
+subtitle:
+description:
 keywords:
-author: John Doe
-language: en
-timezone: ''
+author: Leptus
+language: zh-CN
+timezone:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
