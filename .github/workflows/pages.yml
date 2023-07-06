@@ -11,6 +11,8 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: nikeee/setup-pandoc@v1
+      - run: echo "# Test" | pandoc -t html
       - uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
