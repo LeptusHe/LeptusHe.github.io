@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-07-06T10:23:52.137Z</updated>
+  <updated>2023-07-06T12:55:43.854Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,15 +21,18 @@
     <link href="http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/"/>
     <id>http://example.com/2023/07/04/spherical-harmonics-01-function-fitting/</id>
     <published>2023-07-04T13:01:14.000Z</published>
-    <updated>2023-07-06T10:23:52.137Z</updated>
+    <updated>2023-07-06T12:55:43.854Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;计算机应用常常需要使用简单函数的线性组合来拟合某个复杂函数。例如，在游戏开发中，为了实现某些渲染效果，通常会在shader中使用到正弦函数。但是，由于GPU计算正弦函数的指令数较多，性能开销比较高，开发者通常会考虑使用多项式函数&lt;span
-class=&quot;math</summary>
+    <summary type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot;</summary>
         
       
     
@@ -43,14 +46,18 @@ class=&quot;math</summary>
     <link href="http://example.com/2019/03/11/temporal-antialiasing-02/"/>
     <id>http://example.com/2019/03/11/temporal-antialiasing-02/</id>
     <published>2019-03-11T21:30:00.000Z</published>
-    <updated>2023-07-06T10:23:52.137Z</updated>
+    <updated>2023-07-06T12:55:43.854Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;history-color失效的情况&quot;&gt;# History</summary>
+    <summary type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot;</summary>
         
       
     
@@ -70,16 +77,18 @@ class=&quot;math</summary>
     <link href="http://example.com/2019/03/09/temporal-antialiasing-01/"/>
     <id>http://example.com/2019/03/09/temporal-antialiasing-01/</id>
     <published>2019-03-09T19:30:00.000Z</published>
-    <updated>2023-07-06T10:23:52.137Z</updated>
+    <updated>2023-07-06T12:55:43.854Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically
-based
-rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，</summary>
+    <summary type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot;</summary>
         
       
     
@@ -99,16 +108,18 @@ rendering)技术不断地被应用在游戏中，实时渲染中的走样问题�
     <link href="http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
     <id>http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</id>
     <published>2018-12-13T19:00:00.000Z</published>
-    <updated>2023-07-06T10:23:52.137Z</updated>
+    <updated>2023-07-06T12:55:43.854Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;在代码中，类与类、类与方法或者其他软件实体之间总是存在着某些依赖关系。例如，假设某个类&lt;span
-class=&quot;math inline&quot;&gt;&#92;(A&#92;)&lt;/span&gt;的对象&lt;span
-class=&quot;math</summary>
+    <summary type="html">&lt;!DOCTYPE html&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; lang=&quot;&quot; xml:lang=&quot;&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;meta name=&quot;generator&quot;</summary>
         
       
     
