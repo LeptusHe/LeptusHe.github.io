@@ -107,16 +107,26 @@ deploy:
 
 # markdown it puls config
 # https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus
-markdown_it_plus:
-    highlight: true
-    html: true
-    xhtmlOut: true
-    breaks: true
-    langPrefix:
-    linkify: true
-    typographer:
-    quotes: “”‘’
-    pre_class: highlight
+#markdown_it_plus:
+#    highlight: true
+#    html: true
+#    xhtmlOut: true
+#    breaks: true
+#    langPrefix:
+#    linkify: true
+#    typographer:
+#    quotes: “”‘’
+#    pre_class: highlight
+
+# pandoc plugin
+# https://github.com/hexojs/hexo-renderer-pandoc
+pandoc:
+  args:
+    - '-f'
+    - 'markdown'
+    - '-t'
+    - 'html'
+    - '--mathjax'
 
 
 # typography theme configs
