@@ -11,9 +11,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: nikeee/setup-pandoc@v1
-      - run: echo "# Test" | pandoc -t html
-      - uses: actions/checkout@v3
+      - name: Setup Pandoc
+        uses: nikeee/setup-pandoc@v1
+      - name: Test Pandoc
+        run: echo "# Test" | pandoc -t html
+      - name: Checkout  
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
