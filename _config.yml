@@ -127,7 +127,7 @@ pandoc:
     - '-t'
     - 'html'
     - '--mathjax'
-
+    - '--standalone'
 
 # typography theme configs
 # https://github.com/SumiMakito/hexo-theme-typography/blob/master/README_zh-CN.md
