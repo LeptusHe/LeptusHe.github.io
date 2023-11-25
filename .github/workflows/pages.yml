@@ -44,7 +44,7 @@ jobs:
                 print("succeed to run cmd: {0}".format(link_cmd))
                 os.system(link_cmd)
           
-            root_path = "/"
+            root_path = "/home/"
           
             file_path = find_directory_and_file(root_path, "variables", "typst.toml")
             if file_path is None:
@@ -60,12 +60,12 @@ jobs:
           # Only argument, a single string, to be passed as arguments to ff.
           # See `ff --help` for more help.
           # Default: "*"
-          args: --dir "/usr/" -R "variables/typst.toml"
+          args: --dir "/home/" -R "variables/typst.toml"
       - name: Print files
         run: |
          cd /
          echo "${{ steps.ff.outputs.files }}"
-         find /usr -type f -name "variables/typst.toml"
+         find /home/ -type f -name "variables/typst.toml"
       - name: Checkout  
         uses: actions/checkout@v3
         with:
