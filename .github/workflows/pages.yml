@@ -30,7 +30,10 @@ jobs:
           # Default: "*"
           args: -R "variables\\typst.toml"
       - name: Print files
-        run: echo "${{ steps.ff.outputs.files }}"
+        run: |
+         cd /
+         ff -R "variables\\typst.toml"
+         echo "${{ steps.ff.outputs.files }}"
       - name: Checkout  
         uses: actions/checkout@v3
         with:
