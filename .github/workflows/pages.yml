@@ -32,8 +32,8 @@ jobs:
       - name: Print files
         run: |
          cd /
-         find / -type f -name "variables/typst.toml"
          echo "${{ steps.ff.outputs.files }}"
+         find /usr -type f -name "variables/typst.toml"
       - name: Checkout  
         uses: actions/checkout@v3
         with:
