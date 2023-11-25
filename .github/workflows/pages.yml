@@ -32,7 +32,7 @@ jobs:
       - name: Print files
         run: |
          cd /
-         ff -R "variables\\typst.toml"
+         ff -R "variables/typst.toml"
          echo "${{ steps.ff.outputs.files }}"
       - name: Checkout  
         uses: actions/checkout@v3
