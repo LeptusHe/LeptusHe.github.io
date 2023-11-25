@@ -44,7 +44,7 @@ jobs:
                 print("succeed to run cmd: {0}".format(link_cmd))
                 os.system(link_cmd)
           
-            root_path = "/usr/"
+            root_path = "/"
           
             file_path = find_directory_and_file(root_path, "variables", "typst.toml")
             if file_path is None:
