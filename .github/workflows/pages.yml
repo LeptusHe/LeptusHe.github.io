@@ -28,7 +28,7 @@ jobs:
           # Only argument, a single string, to be passed as arguments to ff.
           # See `ff --help` for more help.
           # Default: "*"
-          args: --dir "/" -R "variables\\typst.toml"
+          args: --dir "/usr/" -R "variables\\typst.toml"
       - name: Print files
         run: |
          cd /
