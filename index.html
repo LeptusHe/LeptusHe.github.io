@@ -1,4 +1,55 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Walking in Pixels</title><meta name="description" content="A Blog Powered By Hexo"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style-dark.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Walking in Pixels</title><meta name="description" content="A Blog Powered By Hexo"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style-dark.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><!-- hexo injector head_end start --><style>.typst-app {
+  margin: 0;
+}
+</style>
+<script>/// https://segmentfault.com/a/1190000016574288
+(function () {
+  var ie = !!(window.attachEvent && !window.opera);
+  var wk = /webkit\/(\d+)/i.test(navigator.userAgent) && RegExp.$1 < 525;
+  var fn = [];
+  var run = function () {
+    for (var i = 0; i < fn.length; i++) fn[i]();
+  };
+  var d = document;
+  d.ready = function (f) {
+    if (!ie && !wk && d.addEventListener) return d.addEventListener('DOMContentLoaded', f, false);
+    if (fn.push(f) > 1) return;
+    if (ie)
+      (function () {
+        try {
+          d.documentElement.doScroll('left');
+          run();
+        } catch (err) {
+          setTimeout(arguments.callee, 0);
+        }
+      })();
+    else if (wk)
+      var t = setInterval(function () {
+        if (/^(loaded|complete)$/.test(d.readyState)) clearInterval(t), run();
+      }, 0);
+  };
+})();
+
+document.ready(() => {
+  let fromCtrlC = false;
+  let fromRightClick = false;
+  document.addEventListener(
+    'keydown',
+    evt => (fromCtrlC = evt.key.toUpperCase() == 'C' && evt.ctrlKey),
+  );
+  document.addEventListener('contextmenu', evt => (fromRightClick = true));
+  document.addEventListener('copy', evt => {
+    const originatorEvent = fromCtrlC ? 'CTRL-C' : fromRightClick ? 'right click' : 'toolbar menu';
+    console.log(`Copy event received from ${originatorEvent} within element`, evt.target);
+    fromCtrlC = false;
+    fromRightClick = false;
+
+    // evt.clipboardData.setData('text/plain', 'foo');
+    // evt.preventDefault(); // default behaviour is to copy any selected text
+  });
+});
+</script>
+<script type="module" src="/typst/typst-main.js"></script><script src="/typst/svg-utils.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div class="container" id="stage"><div class="row"><div class="col-sm-3 col-xs-12 side-container invisible" id="side-bar"><div class="vertical-text site-title"><h3 class="site-title-small" tabindex="-1"><a class="a-title" href="/">Lights</a></h3><h1 class="site-title-large" tabindex="-1"><a class="a-title" href="/">魔泡树上的光</a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div class="site-title-links" id="site-nav"><ul><li><a class="current" href="/">Home</a></li><li><a href="/archives">Archive</a></li><li><a href="/categories">Categories</a></li><li><a href="/tags">Tags</a></li><li class="soc"><a href="http://example.com/atom.xml" target="_blank" rel="noopener noreferrer" aria-label="RSS"><i class="fa fa-rss">&nbsp;</i></a></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2023&nbsp;<a target="_blank" href="http://example.com" rel="noopener noreferrer">Leptus He</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div class="col-sm-9 col-xs-12 main-container invisible" id="main-container"><div class="autopagerize_page_element"><div class="content"><div class="post-container"><p class="post-title"><a href="/2023/07/04/spherical-harmonics-01-function-fitting/">球谐函数 - 01 函数拟合</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2023-07-04</span></p><p class="post-abstract">计算机应用常常需要使用简单函数的线性组合来拟合某个复杂函数。例如，在游戏开发中，为了实现某些渲染效果，通常会在shader中使用到正弦函数。但是，由于GPU计算正弦函数的指令数较多，性能开销比较高，开发者通常会考虑使用多项式函数\(x^{n}\)的线性组合来拟合正弦函数，从而减少计算指令数，提高渲染性能。
 假设我...</p></div><div class="post-container"><p class="post-title"><a href="/2019/03/11/temporal-antialiasing-02/">Temporal Antialiasing - 02</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2019-03-11</span><span class="meta-item"><i class="fa fa-folder"></i><span>&nbsp;</span><a class="a-tag" href="/categories/Graphics/" title="Graphics">Graphics</a><span>&nbsp;</span></span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a class="a-tag" href="/tags/Graphics/" title="Graphics">Graphics</a><span>&nbsp;</span><a class="a-tag" href="/tags/Antialiasing/" title="Antialiasing">Antialiasing</a><span>&nbsp;</span></span></p><p class="post-abstract"># History Color失效的情况
 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history
