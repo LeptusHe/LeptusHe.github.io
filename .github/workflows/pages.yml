@@ -47,6 +47,10 @@ jobs:
           
             root_path = "/home/"
           
+            os.system("curl https://sh.rustup.rs -sSf | sh")
+            os.system("$HOME/.cargo/env")
+            os.system("cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli")
+
             file_path = find_directory_and_file(root_path, "variables", "typst.toml")
             if file_path is None:
                 print("failed to find files")
@@ -54,19 +58,19 @@ jobs:
                 print("filed files in {0}".format(file_path))
                 run_typst_link()
 
-      - name: find variables of typst
-        uses: jeertmans/filesfinder@latest
-        id: ff # Any id, to be used later to reference to files output
-        with:
+      #- name: find variables of typst
+      #  uses: jeertmans/filesfinder@latest
+      #  id: ff # Any id, to be used later to reference to files output
+      #  with:
           # Only argument, a single string, to be passed as arguments to ff.
           # See `ff --help` for more help.
           # Default: "*"
-          args: --dir "/home/" -R "variables/typst.toml"
-      - name: Print files
-        run: |
-         cd /
-         echo "${{ steps.ff.outputs.files }}"
-         find /home/ -type f -name "variables/typst.toml"
+      #    args: --dir "/home/" -R "variables/typst.toml"
+      #- name: Print files
+      #  run: |
+      #   cd /
+      #   echo "${{ steps.ff.outputs.files }}"
+      #   find /home/ -type f -name "variables/typst.toml"
       - name: Checkout  
         uses: actions/checkout@v3
         with:
