@@ -15,6 +15,12 @@ jobs:
         uses: nikeee/setup-pandoc@v1
       - name: Test Pandoc
         run: echo "# Test" | pandoc -t html
+      - name: install typst-ts-cli
+        uses: baptiste0928/cargo-install@v2
+        with:
+          crate: typst-ts-cli
+          git: https://github.com/Myriad-Dreamin/typst.ts
+          version: "0.4.0"
       - name: Checkout  
         uses: actions/checkout@v3
         with:
