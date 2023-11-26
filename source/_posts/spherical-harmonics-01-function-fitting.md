@@ -1,5 +1,5 @@
 ---
-title: 球谐函数 - 01 函数拟合
+title: 球谐函数 - 01 Function Fitting
 date: 2023-07-04 13:01:14
 tags:
 ---
