@@ -20,6 +20,7 @@ jobs:
         with:
           crate: typst-ts-cli
           git: https://github.com/Myriad-Dreamin/typst.ts
+          tag: v0.4.0
           version: "0.4.0"
       - name: "setup python 3.x"
         uses: actions/setup-python@v4
