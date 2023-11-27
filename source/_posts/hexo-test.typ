@@ -2,8 +2,9 @@
  author: "leptus")
 
 #set page(paper: "a0",
- width: 40cm,
- columns: 1
+  width: 30cm,
+  margin: 0pt,
+  columns: 1
 // fill: black
 )
 
