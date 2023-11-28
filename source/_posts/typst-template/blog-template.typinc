@@ -1,0 +1,15 @@
+#let blog_setting(title: "blog", author: (), body) = {
+  
+  set document(title: title, author: author)
+  set page(paper: "a0",
+    width: 28cm,
+    margin: 6pt,
+    columns: 1,
+    //fill: black
+  )
+
+  set heading(numbering: "1.")
+  set text(size: 20pt, fill: white)
+
+  body
+}

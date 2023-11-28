@@ -1,17 +1,21 @@
-#set document(title: "hexo",
- author: "leptus")
+#import "../typst-template/blog-template.typinc": *
 
-#set page(paper: "a0",
-  width: 30cm,
-  margin: 0pt,
-  columns: 1
-// fill: black
+#show: blog_setting.with(
+  title: "hexo-test",
+  author: ("Leptus He", )
 )
 
-#set text(size: 20pt, fill: white)
-#set heading(numbering: "1.")
 
 = Hexo Title <document_title>
+
+测试下
+
+#figure(
+      image("../../image/spherical-harmonics/01-function-fitting/sin-fitting-4.png", width: 50%),
+      caption: [
+            测试图片
+      ]
+)
 
 有些作者会告诉你应该一完成研究就写摘要。但是，很可能你的项目耗时数月甚至数年，因此，你所完成的研究全貌可能在你脑子里已并不清晰。先写论文可以解决这个问题。在你将你的工作成果的所有方面浓缩到一个文件里时，你的记忆将得到有效的刷新。 文稿可以指导摘要的写作，而摘要是你的研究的精简概括。
 
