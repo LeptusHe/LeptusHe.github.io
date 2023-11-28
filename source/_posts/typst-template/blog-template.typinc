@@ -1,3 +1,6 @@
+#import "@preview/codly:0.1.0": *
+#import "@preview/codelst:2.0.0": sourcecode
+
 #let blog_setting(title: "blog", author: (), body) = {
   
   set document(title: title, author: author)
@@ -9,7 +12,28 @@
   )
 
   set heading(numbering: "1.")
-  set text(size: 20pt, fill: white)
+  set text(size: 20pt, fill: black)
+
+  show: codly-init.with()
+
+  /*
+  let icon(codepoint) = {
+    box(
+      height: 0.8em,
+      baseline: 0.05em,
+      //image(codepoint)
+    )
+    h(0.1em)
+  }
+  */
+
+  /*
+  codly(languages: (
+    rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
+    python: (name: "Python", icon: icon("brand-rust.svg"), color: rgb("#3572A5")),
+  ))
+  */
 
   body
 }
+
