@@ -12,7 +12,7 @@
   )
 
   set heading(numbering: "1.")
-  set text(size: 20pt, fill: black)
+  set text(size: 20pt, fill: white)
 
   show: codly-init.with()
 
