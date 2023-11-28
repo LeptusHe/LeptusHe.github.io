@@ -5,8 +5,8 @@
   
   set document(title: title, author: author)
   set page(paper: "a0",
-    width: 28cm,
-    margin: 6pt,
+    width: 25cm,
+    margin: 8pt,
     columns: 1,
     //fill: black
   )
