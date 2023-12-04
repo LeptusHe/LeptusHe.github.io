@@ -5,14 +5,20 @@
   
   set document(title: title, author: author)
   set page(paper: "a0",
-    width: 25cm,
-    margin: 8pt,
+    width: 20cm,
+    margin: 10pt,
     columns: 1,
-    //fill: black
+    fill: black
   )
 
   set heading(numbering: "1.")
   set text(size: 20pt, fill: white)
+
+  show raw.where(lang: "cpp"): block.with(
+  fill: luma(240),
+  radius: 4pt,
+  inset: 10pt
+  )
 
   show: codly-init.with()
 
@@ -37,3 +43,10 @@
   body
 }
 
+// important text
+#let im = (content) => {
+  let color = blue.lighten(50%)
+
+  set text(fill: color)
+  [#content]
+}

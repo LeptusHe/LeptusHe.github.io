@@ -5,6 +5,7 @@
   author: ("Leptus He", )
 )
 
+== 测试
 
 在代码中，类与类、类与方法或者其他软件实体之间总是存在着某些依赖关系。例如，假设某个类$A$的对象$a$需要完成某个功能，然而，它需要通过与类$B$的对象$b$的协作才能够完成该功能。在这个过程中，类$B$则成为类$A$的一个依赖。类$B$的对象$b$则成为了一个service对象（服务的提供者），类$A$的对象$a$则是一个client对象（服务的使用者）。
 
@@ -36,7 +37,7 @@
 
 == Constructor注入
 
-#sourcecode[```cpp
+```cpp
 class ModelManager {
 public:
     ModelManager(MeshManager *meshManager, MaterialManager *materialManager)
@@ -59,7 +60,7 @@ private:
     MeshManager *mMeshManager;
     MaterialManager *mMaterialManager;
 }
-```]
+```
 
 Constructor注入方法是通过将service对象作为constructor的参数来将依赖注入到client类中的。因此，注入的依赖成为了client的状态的一部分。一般而言，如果依赖能够在调用constructor前构造出来，constructor注入方法是首选的依赖注入方法。因为在constructor被调用后，client对象所需要的依赖都已经被满足了，所以constructor注入方法能够保证client对象总是处于一个合法的状态。
 
@@ -67,7 +68,6 @@ Constructor注入的缺点在于缺乏灵活性。当client对象被构造后，
 
 == Setter注入
 
-#sourcecode[
 ```cpp
 class ModelManager {
 public:
@@ -96,13 +96,11 @@ private:
     MaterialManager *mMaterialManager;
 }
 ```
-]
 
 Setter注入方法主要是通过提供一个setter函数来注入依赖。它的优点在于能够灵活地注入service对象。在任意时刻，client对象所依赖的service对象都能够被更改。然而，由于service对象的注入时间不确定，从而导致在需要使用service对象时，client对象都需要查看service对象是否已经被注入。当需要使用service对象，而其未被注入时，client对象就处于不合法的状态，导致我们需要编写额外的代码来对这种情况进行处理，从而增加了代码量和其他负担。
 
 == Constructor注入和Setter注入的结合
 
-#sourcecode[
 ```cpp
 class ModelManager {
 public:
@@ -137,7 +135,6 @@ private:
     MaterialManager *mMaterialManager;
 }
 ```
-]
 
 通过结合constructor注入和setter注入方法，我们能够同时拥有两种注入方法的优点，并没有了两种注入方式的缺点。如上所示，在client对象被构造后，其处于一个合法的状态。并且，通过setter函数能够随时替换service对象并保持client对象状态的合法性。
 
