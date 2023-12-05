@@ -8,7 +8,7 @@
     width: 20cm,
     margin: 10pt,
     columns: 1,
-    fill: black
+    fill: white
   )
 
   set heading(numbering: "1.")
