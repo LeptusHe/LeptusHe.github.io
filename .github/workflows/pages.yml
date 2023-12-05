@@ -15,11 +15,11 @@ jobs:
         uses: nikeee/setup-pandoc@v1
       - name: Test Pandoc
         run: echo "# Test" | pandoc -t html
-      - name: install typst
-        uses: baptiste0928/cargo-install@v2
-        with:
-          crate: typst
-          git: https://github.com/typst/typst
+      #- name: install typst
+      #  uses: baptiste0928/cargo-install@v2
+      #  with:
+      #    crate: typst
+      #    git: https://github.com/typst/typst
       #    tag: v0.4.1
       #    version: "0.4.1"
       - name: "setup python 3.x"
@@ -49,6 +49,7 @@ jobs:
           
             os.system("curl https://sh.rustup.rs -sSf | sh")
             os.system("$HOME/.cargo/env")
+            os.system("cargo install --git https://github.com/typst/typst")
             os.system("cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli --tag v0.4.1 --version 0.4.1")
 
             file_path = find_directory_and_file(root_path, "variables", "typst.toml")
