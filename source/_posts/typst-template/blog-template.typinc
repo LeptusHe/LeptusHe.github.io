@@ -5,17 +5,15 @@
   
   set document(title: title, author: author)
   set page(paper: "a0",
-    width: 20cm,
-    margin: 10pt,
-    columns: 1,
-    fill: white
+    width: 26cm,
+    margin: 5pt,
+    columns: 1
   )
 
   set heading(numbering: "1.")
   set text(size: 20pt, fill: white)
 
   show raw.where(lang: "cpp"): block.with(
-  fill: luma(240),
   radius: 4pt,
   inset: 10pt
   )
