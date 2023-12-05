@@ -20,8 +20,8 @@ jobs:
       #  with:
       #    crate: typst-ts-cli
       #    git: https://github.com/Myriad-Dreamin/typst.ts
-      #    tag: v0.4.0
-      #    version: "0.4.0"
+      #    tag: v0.4.1
+      #    version: "0.4.1"
       - name: "setup python 3.x"
         uses: actions/setup-python@v4
         with:
@@ -49,7 +49,7 @@ jobs:
           
             os.system("curl https://sh.rustup.rs -sSf | sh")
             os.system("$HOME/.cargo/env")
-            os.system("cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli --tag v0.4.0 --version 0.4.0")
+            os.system("cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli --tag v0.4.1 --version 0.4.1")
 
             file_path = find_directory_and_file(root_path, "variables", "typst.toml")
             if file_path is None:
