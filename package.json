@@ -13,8 +13,8 @@
     "version": "6.3.0"
   },
   "dependencies": {
-    "@myriaddreamin/typst-ts-renderer": "^0.4.0-rc3",
-    "@myriaddreamin/typst.ts": "^0.4.0-rc3",
+    "@myriaddreamin/typst-ts-renderer": "^0.4.1",
+    "@myriaddreamin/typst.ts": "^0.4.1",
     "hexo": "^6.3.0",
     "hexo-filter-flowchart": "^1.0.4",
     "hexo-generator-archive": "^2.0.0",
@@ -29,7 +29,7 @@
     "hexo-renderer-pandoc": "^0.4.0",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^3.0.0",
-    "hexo-renderer-typst": "^0.4.0-rc3",
+    "hexo-renderer-typst": "^0.4.1",
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-theme-next": "^8.17.1"

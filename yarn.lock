@@ -31,15 +31,15 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@myriaddreamin/typst-ts-renderer@*", "@myriaddreamin/typst-ts-renderer@^0.4.0-rc3":
-  version "0.4.0-rc3"
-  resolved "https://registry.npmjs.org/@myriaddreamin/typst-ts-renderer/-/typst-ts-renderer-0.4.0-rc3.tgz"
-  integrity sha512-VcLIC+OBoqoW2GXhslc6TC+TlE11pIKwj3PrUZF7VBTfbScGUCZFBGR9TdTYc7xZ+HU9Cw9LFgQ3AC5y4FofjA==
+"@myriaddreamin/typst-ts-renderer@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.npmjs.org/@myriaddreamin/typst-ts-renderer/-/typst-ts-renderer-0.4.1.tgz"
+  integrity sha512-5NXDwK0K00o+ZoMaxBlBdSsmVKY5aalolgUyTO9KNFRG3d1itsWRpRqrc1XC1dEyskGMuIqDkgwOY8vN/7T/Fw==
 
-"@myriaddreamin/typst.ts@*", "@myriaddreamin/typst.ts@^0.4.0-rc3":
-  version "0.4.0-rc3"
-  resolved "https://registry.npmjs.org/@myriaddreamin/typst.ts/-/typst.ts-0.4.0-rc3.tgz"
-  integrity sha512-0YIrca4bIZZ40kRgFC5W/B70zJtxswM830wsGyJ5Awwem6RlIyFOg0xNjNzl+ykZTYwAa327QRWd5DhKs+kdIg==
+"@myriaddreamin/typst.ts@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.npmjs.org/@myriaddreamin/typst.ts/-/typst.ts-0.4.1.tgz"
+  integrity sha512-hNkVeQaqYEt6xSuTxbDzvm0f3KkymbTGpQv6QsYyCUsa/xBzijyDN9pspW+TA+H5f9u+x1GmmGgn3bZojrHttg==
   dependencies:
     idb "^7.1.1"
 
@@ -1111,10 +1111,10 @@ hexo-renderer-stylus@^3.0.0:
     nib "^1.2.0"
     stylus "^0.59.0"
 
-hexo-renderer-typst@^0.4.0-rc3:
-  version "0.4.0-rc3"
-  resolved "https://registry.npmjs.org/hexo-renderer-typst/-/hexo-renderer-typst-0.4.0-rc3.tgz"
-  integrity sha512-MZA+H3De31XwTb6Aku3r5Az8SNXlHtPIlWK0IbD14X8KGTMvd/M7v/YUaf7eTuL1AdSPpgNqTvsXXtGuq/UA3Q==
+hexo-renderer-typst@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.npmjs.org/hexo-renderer-typst/-/hexo-renderer-typst-0.4.1.tgz"
+  integrity sha512-mTiy95TDR5Tk8aOeozuYlA0hDaZudg1azDih2LdCq9FzUwhxL57w2zqoTB86NrpfbNevr9X3oTL/W9/EjcBO1Q==
 
 hexo-server@^3.0.0:
   version "3.0.0"
@@ -1154,7 +1154,7 @@ hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.5.0, hexo-util@^2.7.0:
     prismjs "^1.17.1"
     strip-indent "^3.0.0"
 
-hexo@*, hexo@^6.3.0:
+hexo@^6, hexo@^6.3.0:
   version "6.3.0"
   resolved "https://registry.npmjs.org/hexo/-/hexo-6.3.0.tgz"
   integrity sha512-4Jq+rWd8sYvR1YdIQyndN/9WboQ/Mqm6eax8CjrjO+ePFm2oMVafSOx9WEyJ42wcLOHjfyMfnlQhnUuNmJIpPg==
