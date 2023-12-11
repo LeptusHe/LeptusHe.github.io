@@ -22,6 +22,7 @@
 
   show: codly-init.with()
 
+  /*
   let icon(codepoint) = {
     box(
       height: 0.8em,
@@ -29,6 +30,7 @@
     )
     h(0.1em)
   }
+  */
 
 /*
   codly(languages: (
