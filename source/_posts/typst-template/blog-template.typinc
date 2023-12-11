@@ -10,34 +10,32 @@
     columns: 1
   )
 
+  let body-font = "霞骛文楷"
+
   set heading(numbering: "1.")
-  set text(size: 20pt, fill: white)
+  set text(font: body-font, lang: "zh", size: 20pt, fill: white)
 
   show raw.where(lang: "cpp"): block.with(
-  radius: 4pt,
-  inset: 10pt
+    radius: 4pt,
+    inset: 10pt
   )
 
   show: codly-init.with()
 
-  /*
   let icon(codepoint) = {
     box(
       height: 0.8em,
       baseline: 0.05em,
-      //image(codepoint)
     )
     h(0.1em)
   }
-  */
 
-  /*
+/*
   codly(languages: (
     rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
     python: (name: "Python", icon: icon("brand-rust.svg"), color: rgb("#3572A5")),
   ))
-  */
-
+*/
   body
 }
 
