@@ -1,12 +1,10 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Temporal Antialiasing - 02 · Walking in Pixels</title><meta name="description" content="# History Color失效的情况
 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history
 color。然而，并不是在任何情况下，history color都是正确的。
-相机/物体运动导致的history
-"><meta name="og:description" content="# History Color失效的情况
+相机/物体运动导致的histo"><meta name="og:description" content="# History Color失效的情况
 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history
 color。然而，并不是在任何情况下，history color都是正确的。
-相机/物体运动导致的history
-"><meta name="twitter:site" content="Walking in Pixels"><meta name="twitter:title" content="Temporal Antialiasing - 02"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style-dark.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><!-- hexo injector head_end start --><style>.typst-app {
+相机/物体运动导致的histo"><meta name="twitter:site" content="Walking in Pixels"><meta name="twitter:title" content="Temporal Antialiasing - 02"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style-dark.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><!-- hexo injector head_end start --><style>.typst-app {
   margin: 0;
 }
 </style>
