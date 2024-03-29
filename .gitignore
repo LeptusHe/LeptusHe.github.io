@@ -9,3 +9,6 @@ _multiconfig.yml
 
 # custom 
 *.pdf
+.idea/
+build/
+*.pyc
