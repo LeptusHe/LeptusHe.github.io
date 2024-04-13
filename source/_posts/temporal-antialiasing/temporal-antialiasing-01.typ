@@ -2,7 +2,8 @@
 
 #show: blog_setting.with(
   title: "Temporal Antialiasing - 01",
-  author: ("Leptus He")
+  author: ("Leptus He"),
+  paper: "a1"
 )
 
 走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。

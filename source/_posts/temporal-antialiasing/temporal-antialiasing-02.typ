@@ -2,9 +2,9 @@
 
 #show: blog_setting.with(
   title: "Temporal Antialiasing - 02",
-  author: ("Leptus He")
+  author: ("Leptus He"),
+  paper: "a1"
 )
-
 
 = History Color失效的情况
 

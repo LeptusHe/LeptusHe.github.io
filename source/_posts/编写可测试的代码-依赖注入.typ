@@ -2,7 +2,8 @@
 
 #show: blog_setting.with(
   title: "编写可测试的代码-依赖注入",
-  author: ("Leptus He", )
+  author: ("Leptus He"),
+  paper: "a1"
 )
 
 = 测试
