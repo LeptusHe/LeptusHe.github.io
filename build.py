@@ -128,7 +128,7 @@ def main():
     install_typst()
     install_typst_ts_cli()
     #run_hexo_generate()
-    deploy('build2')
+    deploy('build')
 
 
 if __name__ == "__main__":
