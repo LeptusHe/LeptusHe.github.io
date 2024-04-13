@@ -1,5 +1,8 @@
 #import "@preview/codly:0.2.0": *
 #import "@preview/codelst:2.0.0": sourcecode
+#import "@preview/ouset:0.1.1": *
+#import "@preview/down:0.1.0": *
+#import "@preview/mitex:0.2.3": *
 
 #let blog_setting(title: "blog", author: (), body) = {
   
@@ -53,6 +56,8 @@
 )
 
   show: codly-init.with()
+  
+  set math.equation(numbering: "(1)")
   
   body
 }
