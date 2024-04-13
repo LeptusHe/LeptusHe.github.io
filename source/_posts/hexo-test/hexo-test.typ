@@ -11,7 +11,7 @@
 测试下
 
 #figure(
-      image("../../image/spherical-harmonics/01-function-fitting/sin-fitting-4.png", width: 50%),
+      image("../spherical-harmonics/images/sin-fitting-4.png", width: 50%),
       caption: [
             测试图片
       ]

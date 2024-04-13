@@ -2,8 +2,10 @@
 
 #show: blog_setting.with(
   title: "球谐函数 - 01 Function Fitting",
-  author: ("Leptus He")
+  author: ("Leptus He"),
+  preview: false
 )
+
 
 #let sim = $tilde.op$
 
@@ -18,7 +20,7 @@ $ <eq:approxsin>
 线性组合系数$c_i$的取值应该使得函数$f(x)$与$overset(f, sim)(x)$之间的误差最小。因此，我们先定义误差函数$g(x)$，然后求得误差函数$g(x)$的最小值点，即可以得到线性组合系数$c_i$。
 
 $
-g(x) = Integral(-2 pi, 2 pi, (f(x) - overset(f, sim)(x))^2)
+g(x) = integral_(-2 pi)^(2 pi) (f(x) - overset(f, sim)(x))^2 dif x
 $
 
 由于函数$g(x)$的最小值点必定在极小值点取得，因此求函数$g(x)$的最小值点的一种方法是，求$g(x)$的导数为0的点。另外，我们还可以使用其他方法来求解系数$c_i$，该方法称为#im[最小二乘投影]，这是后面重点介绍的方法。
@@ -113,7 +115,6 @@ $$\begin{aligned}
 ) <fig-sin-fitting-6>
 
 我们取@fig-sin-fitting-6 中的局部区间#mi("[\frac{3\pi}{10},\frac{7\pi}{10}]")，如@fig-sin-fitting-6-term-local 所示，可以看到函数$sin(x)$与#mi("\overset{\sim}{f}(x)")的曲线误差也很小。
-
 
 #figure(
   image("./images/sin-fitting-6-local.png", width: 80%),

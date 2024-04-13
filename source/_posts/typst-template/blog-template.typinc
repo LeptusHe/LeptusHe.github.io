@@ -1,10 +1,9 @@
 #import "@preview/codly:0.2.0": *
 #import "@preview/codelst:2.0.0": sourcecode
 #import "@preview/ouset:0.1.1": *
-#import "@preview/down:0.1.0": *
 #import "@preview/mitex:0.2.3": *
 
-#let blog_setting(title: "blog", author: (), body) = {
+#let blog_setting(title: "blog", author: (), preview: false, body) = {
   
   set document(title: title, author: author)
   set page(paper: "a0",
@@ -15,12 +14,19 @@
 
   let body-font = "霞骛文楷"
 
+  let body-fill-color = red
+  if preview {
+    body-fill-color = black
+  } else {
+    body-fill-color = rgb(216, 227, 231)
+  }
+
   set heading(numbering: "1.")
   set text(
    font: body-font,
    lang: "zh",
    size: 20pt,
-   fill: white)
+   fill: body-fill-color)
 
 /*
   show raw.where(lang: "cpp"): block.with(
