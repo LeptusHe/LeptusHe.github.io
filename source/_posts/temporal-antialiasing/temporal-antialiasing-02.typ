@@ -47,12 +47,6 @@ Neighborhood Clamping方法中首先需要根据pixel的邻域颜色来构建一
 
 当history color不在AABB范围中时，一种处理方式是将history color进行clamping，即
 
-#codly(
-  stroke-color: luma(240),
-  zebra-color: black,
-  enable-numbers: true
-)
-
 ```cpp
 historyColor = clamp(historyColor, minColor, maxColor);
 ```
