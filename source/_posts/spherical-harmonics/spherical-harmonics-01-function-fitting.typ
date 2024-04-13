@@ -1,9 +1,10 @@
 #import "../typst-template/blog-template.typinc": * 
 
 #show: blog_setting.with(
-  title: "球谐函数 - 01 Function Fitting",
+  title: "球谐函数01 - 函数拟合",
   author: ("Leptus He"),
-  preview: false
+  paper: "jis-b0",
+  //preview: true
 )
 
 
