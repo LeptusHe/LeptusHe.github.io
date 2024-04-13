@@ -1,7 +1,7 @@
 #import "../typst-template/blog-template.typinc": * 
 
 #show: blog_setting.with(
-  title: "球谐函数02 — 基础理论",
+  title: "球谐函数02 - 基础理论",
   author: ("Leptus He"),
   paper: "jis-b0",
   //preview: true

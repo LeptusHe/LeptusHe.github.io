@@ -4,7 +4,7 @@
   title: "球谐函数01 - 函数拟合",
   author: ("Leptus He"),
   paper: "jis-b0",
-  preview: true
+  //preview: true
 )
 
 = 函数拟合
