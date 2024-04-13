@@ -1,4 +1,4 @@
-#import "@preview/codly:0.1.0": *
+#import "@preview/codly:0.2.0": *
 #import "@preview/codelst:2.0.0": sourcecode
 
 #let blog_setting(title: "blog", author: (), body) = {
@@ -13,31 +13,47 @@
   let body-font = "霞骛文楷"
 
   set heading(numbering: "1.")
-  set text(font: body-font, lang: "zh", size: 20pt, fill: white)
+  set text(
+   font: body-font,
+   lang: "zh",
+   size: 20pt,
+   fill: white)
 
+/*
   show raw.where(lang: "cpp"): block.with(
     radius: 4pt,
-    inset: 10pt
+    inset: 10pt,
+    fill: black
   )
+*/
 
-  show: codly-init.with()
-
-  /*
   let icon(codepoint) = {
     box(
       height: 0.8em,
-      baseline: 0.05em,
+      baseline: 0.05em
     )
     h(0.1em)
   }
-  */
 
-/*
   codly(languages: (
     rust: (name: "Rust", icon: icon("brand-python.svg"), color: rgb("#CE412B")),
     python: (name: "Python", icon: icon("brand-rust.svg"), color: rgb("#3572A5")),
+    cpp: (name: "cpp", icon: icon("brand-rust.svg"), color: blue),
   ))
-*/
+
+  let codly-color = rgb(43, 51, 62)
+  codly-color = rgb(19, 24, 36)
+  
+  codly(
+    stroke-color: blue,
+    zebra-color: codly-color,
+    enable-numbers: true,
+    breakable: true,
+    fill: codly-color
+)
+
+  show: codly-init.with()
+  
   body
 }
 
