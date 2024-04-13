@@ -3,10 +3,10 @@
 #import "@preview/ouset:0.1.1": *
 #import "@preview/mitex:0.2.3": *
 
-#let blog_setting(title: "blog", author: (), preview: false, body) = {
+#let blog_setting(title: "blog", author: (), preview: false, paper: "a0", body) = {
   
   set document(title: title, author: author)
-  set page(paper: "a0",
+  set page(paper: paper,
     width: 26cm,
     margin: 5pt,
     columns: 1
