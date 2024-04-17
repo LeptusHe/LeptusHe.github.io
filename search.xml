@@ -4,17 +4,77 @@
   
     
     <entry>
-      <title>编写可测试的代码-依赖注入</title>
-      <link href="/2024/04/17/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
-      <url>/2024/04/17/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</url>
+      <title>球谐函数02 - 基础理论</title>
+      <link href="/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/"/>
+      <url>/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/</url>
       
-        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/编写可测试的代码-依赖注入.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
+        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/spherical-harmonics/spherical-harmonics-02-basis.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
       
+      
+      <categories>
+          
+          <category> 图形渲染 </category>
+          
+          <category> 数学 </category>
+          
+      </categories>
       
       
         <tags>
             
-            <tag> 依赖注入 </tag>
+            <tag> 球谐函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>球谐函数01 - 函数拟合</title>
+      <link href="/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
+      <url>/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/</url>
+      
+        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/spherical-harmonics/spherical-harmonics-01-function-fitting.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图形渲染 </category>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 球谐函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Temporal Antialiasing - 02</title>
+      <link href="/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/"/>
+      <url>/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/</url>
+      
+        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/temporal-antialiasing/temporal-antialiasing-02.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 图形渲染 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Temporal Antialiasing </tag>
             
         </tags>
       
@@ -24,50 +84,42 @@
     
     <entry>
       <title>Temporal Antialiasing - 01</title>
-      <link href="/2024/04/15/temporal-antialiasing/temporal-antialiasing-01/"/>
-      <url>/2024/04/15/temporal-antialiasing/temporal-antialiasing-01/</url>
+      <link href="/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/"/>
+      <url>/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/</url>
       
         <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/temporal-antialiasing/temporal-antialiasing-01.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
       
       
+      <categories>
+          
+          <category> 图形渲染 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Temporal Antialiasing </tag>
+            
+        </tags>
       
     </entry>
     
     
     
     <entry>
-      <title>Temporal Antialiasing - 02</title>
-      <link href="/2024/04/15/temporal-antialiasing/temporal-antialiasing-02/"/>
-      <url>/2024/04/15/temporal-antialiasing/temporal-antialiasing-02/</url>
+      <title>编写可测试的代码-依赖注入</title>
+      <link href="/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
+      <url>/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</url>
       
-        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/temporal-antialiasing/temporal-antialiasing-02.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>球谐函数02 - 基础理论</title>
-      <link href="/2024/04/15/spherical-harmonics/spherical-harmonics-02-basis/"/>
-      <url>/2024/04/15/spherical-harmonics/spherical-harmonics-02-basis/</url>
-      
-        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/spherical-harmonics/spherical-harmonics-02-basis.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
+        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/编写可测试的代码-依赖注入.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
       
       
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>球谐函数01 - 函数拟合</title>
-      <link href="/2024/04/15/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
-      <url>/2024/04/15/spherical-harmonics/spherical-harmonics-01-function-fitting/</url>
-      
-        <content type="html"><![CDATA[      <script>        let appContainer = document.currentScript && document.currentScript.parentElement;        document.ready(() => {          let plugin = window.TypstRenderModule.createTypstSvgRenderer();        console.log(plugin);        plugin          .init({            getModule: () =>              '/typst/typst_ts_renderer_bg.wasm',          })          .then(async () => {            const artifactData = await fetch(              '/artifacts/typst/source/_posts/spherical-harmonics/spherical-harmonics-01-function-fitting.multi.sir.in',            )              .then(response => response.arrayBuffer())              .then(buffer => new Uint8Array(buffer));            const t0 = performance.now();            const svgModule = await plugin.createModule(artifactData);            let t1 = performance.now();            console.log(`init took ${t1 - t0} milliseconds`);            const appElem = document.createElement('div');            appElem.class = 'typst-app';            if (appContainer) {              appContainer.appendChild(appElem);            }            const runRender = async () => {              t1 = performance.now();              await plugin.renderToSvg({ renderSession: svgModule, container: appElem });              const t2 = performance.now();              console.log(                `render took ${t2 - t1} milliseconds. total took ${t2 - t0} milliseconds.`,              );            };            let base = runRender();            window.onresize = () => {              base = base.then(runRender());            };          });        });      </script>]]></content>
-      
+      <categories>
+          
+          <category> 单元测试 </category>
+          
+      </categories>
       
       
     </entry>
