@@ -7,6 +7,10 @@
   //preview: true
 )
 
+#metadata("球谐函数") <tags>
+#metadata("图形渲染;数学") <categories>
+#metadata("2023-07-09") <date>
+
 = 球谐函数
 球谐函数是定义在球面坐标系上的一组 _基函数_ (basis function)，与傅里叶基函数类似。对于任意的周期函数$f(x)$，傅里叶基函数${1, sin x, cos x, dots, sin (m x), cos( m x), dots }$的线性组合都能够用来对函数$f(x)$进行拟合。类似的，对于定义在球面上的函数$f(theta, phi)$，球谐函数的线性组合可以用来对函数$f(theta, phi)$进行拟合，如 @spherical-harmonics-fitting 所示。
 

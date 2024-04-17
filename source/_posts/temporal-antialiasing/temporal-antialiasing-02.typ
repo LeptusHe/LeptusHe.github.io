@@ -6,6 +6,10 @@
   paper: "a1"
 )
 
+#metadata("Temporal Antialiasing") <tags>
+#metadata("图形渲染") <categories>
+#metadata("2019-03-11") <date>
+
 = History Color失效的情况
 
 当物体运动或者相机运动时，我们需要通过reprojection操作来获得某个pixel在前一帧中的屏幕空间位置，然后从该位置获取history color。然而，并不是在任何情况下，history color都是正确的。

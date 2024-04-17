@@ -7,7 +7,8 @@
 )
 
 #metadata("依赖注入") <tags>
-#metadata("单元测试;数学") <categories>
+#metadata("单元测试") <categories>
+#metadata("2018-12-13") <date>
 
 = 测试
 

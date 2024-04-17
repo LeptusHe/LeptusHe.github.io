@@ -6,6 +6,10 @@
   paper: "a1"
 )
 
+#metadata("Temporal Antialiasing") <tags>
+#metadata("图形渲染") <categories>
+#metadata("2019-03-09") <date>
+
 走样问题是渲染领域中经常遇到的一个问题。尤其是近几年，随着PBR(physically based rendering)技术不断地被应用在游戏中，实时渲染中的走样问题就变得严重。在PBR技术被应用以前，走样问题的主要来源是三角形光栅化所生成的锯齿问题，即几何走样问题。然而，在PBR技术被应用后，shading产生的高频的颜色信息成为了走样问题的另一个来源。
 
 对于几何走样问题，实时渲染算法中已经存在的一系列算法，比如MSAA，FXAA等，都能够有效地解决该问题。然而，这些算法对于shading走样问题没有很好的效果。在离线渲染中，super sampling一直都是被普遍应用的一种反走样算法。该算法能够有效地解决几何走样和shading走样问题。然而，由于实时渲染对于算法效率的要求，这导致在实时渲染中应用super sampling算法变得不现实。
