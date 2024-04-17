@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const TypstCli = require('./typst-cli');
+const {moment} = require("hexo/lib/plugins/helper/date");
 
 class Processor {
     constructor(hexo) {
@@ -31,6 +32,11 @@ class Processor {
 
         this.typstCli.queryMetadata(data, "categories", (data, result) => {
            data.setCategories(result);
+        });
+
+        this.typstCli.queryMetadata(data, "date", (data, result) => {
+            data.date = moment(result, "YYYY-MM-DD");
+            this.info(`set date ${result} (time=${data.date.format()}) to processing post [${data.source}]`);
         });
 
         return data;

@@ -1,11 +1,12 @@
 const TypstCli = require("./typst-cli");
-const {truncate} = require("hexo/lib/plugins/helper/format");
+const {moment} = require("hexo/lib/plugins/helper/date");
 
 
 class TypstExcerptGenerator {
     constructor(hexo) {
         this.hexo = hexo;
         this.typstCli = new TypstCli(hexo);
+        this.maxAbstractContentLength = 220
     }
 
     process(local) {
@@ -21,7 +22,8 @@ class TypstExcerptGenerator {
         const index = lines.findIndex(line => line.trim().startsWith('='));
         if (index >= 0) {
             let abstract = lines.slice(index + 1, lines.length).join("\n");
-            return this.truncateAbstract(abstract, 120);
+            abstract = this.removeInvalidSymbols(abstract);
+            return this.truncateAbstract(abstract, this.maxAbstractContentLength);
         } else {
             return null;
         }
@@ -33,6 +35,10 @@ class TypstExcerptGenerator {
         } else {
             return text;
         }
+    }
+
+    removeInvalidSymbols(abstractText) {
+        return abstractText.replace(/[$=_#]/g, '');
     }
 
     processPost(post) {
