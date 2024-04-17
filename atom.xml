@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-13T04:40:01.376Z</updated>
+  <updated>2024-04-17T01:55:57.545Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,86 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>球谐函数02 - 基础理论</title>
-    <link href="http://example.com/2024/04/13/spherical-harmonics/spherical-harmonics-02-basis/"/>
-    <id>http://example.com/2024/04/13/spherical-harmonics/spherical-harmonics-02-basis/</id>
-    <published>2024-04-13T04:18:42.512Z</published>
-    <updated>2024-04-13T04:40:01.376Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>球谐函数01 - 函数拟合</title>
-    <link href="http://example.com/2024/04/13/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
-    <id>http://example.com/2024/04/13/spherical-harmonics/spherical-harmonics-01-function-fitting/</id>
-    <published>2024-04-13T01:48:48.004Z</published>
-    <updated>2024-04-13T04:40:07.432Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Temporal Antialiasing - 02</title>
-    <link href="http://example.com/2024/04/13/temporal-antialiasing/temporal-antialiasing-02/"/>
-    <id>http://example.com/2024/04/13/temporal-antialiasing/temporal-antialiasing-02/</id>
-    <published>2024-04-13T00:26:09.565Z</published>
-    <updated>2024-04-13T08:47:34.690Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>编写可测试的代码-依赖注入</title>
-    <link href="http://example.com/2023/12/14/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
-    <id>http://example.com/2023/12/14/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</id>
-    <published>2023-12-14T11:56:33.362Z</published>
-    <updated>2024-04-16T17:08:38.110Z</updated>
+    <link href="http://example.com/2024/04/17/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
+    <id>http://example.com/2024/04/17/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</id>
+    <published>2024-04-17T01:55:57.544Z</published>
+    <updated>2024-04-17T01:55:57.545Z</updated>
     
     
       
@@ -120,10 +45,85 @@
   
   <entry>
     <title>Temporal Antialiasing - 01</title>
-    <link href="http://example.com/2023/12/05/temporal-antialiasing/temporal-antialiasing-01/"/>
-    <id>http://example.com/2023/12/05/temporal-antialiasing/temporal-antialiasing-01/</id>
-    <published>2023-12-05T00:52:55.166Z</published>
-    <updated>2024-04-13T08:47:01.557Z</updated>
+    <link href="http://example.com/2024/04/15/temporal-antialiasing/temporal-antialiasing-01/"/>
+    <id>http://example.com/2024/04/15/temporal-antialiasing/temporal-antialiasing-01/</id>
+    <published>2024-04-15T13:02:45.584Z</published>
+    <updated>2024-04-15T13:02:45.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+      &lt;script&gt;
+        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
+        document.ready(() =&gt; {
+ </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Temporal Antialiasing - 02</title>
+    <link href="http://example.com/2024/04/15/temporal-antialiasing/temporal-antialiasing-02/"/>
+    <id>http://example.com/2024/04/15/temporal-antialiasing/temporal-antialiasing-02/</id>
+    <published>2024-04-15T13:02:45.584Z</published>
+    <updated>2024-04-15T13:02:45.584Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+      &lt;script&gt;
+        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
+        document.ready(() =&gt; {
+ </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>球谐函数02 - 基础理论</title>
+    <link href="http://example.com/2024/04/15/spherical-harmonics/spherical-harmonics-02-basis/"/>
+    <id>http://example.com/2024/04/15/spherical-harmonics/spherical-harmonics-02-basis/</id>
+    <published>2024-04-15T13:02:45.574Z</published>
+    <updated>2024-04-15T13:02:45.574Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+      &lt;script&gt;
+        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
+        document.ready(() =&gt; {
+ </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>球谐函数01 - 函数拟合</title>
+    <link href="http://example.com/2024/04/15/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
+    <id>http://example.com/2024/04/15/spherical-harmonics/spherical-harmonics-01-function-fitting/</id>
+    <published>2024-04-15T13:02:45.573Z</published>
+    <updated>2024-04-15T13:02:45.574Z</updated>
     
     
       
