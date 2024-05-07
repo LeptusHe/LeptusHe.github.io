@@ -43,7 +43,10 @@ class TypstExcerptGenerator {
 
     processPost(post) {
         //console.log(`processPost: ${post.path}, ${post.content}`);
-        if (post.source === undefined || post.source == null) {
+        if (post.source === undefined ||
+            post.source == null ||
+            !(post.source.endsWith(".typ") || post.source.endsWith(".typst"))
+        ) {
             return  {
                 path: post.path,
                 data: post,
