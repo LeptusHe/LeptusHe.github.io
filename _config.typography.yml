@@ -13,6 +13,13 @@ github: LeptusHe
 livere: # [data-uid] on livere.com
 disqus: # [short_name] on disqus.com
 dove: # For fun ONLY. Set to true to 'disable' comments on your site.
+gitalk:
+  clientID: Ov23liWBkDHnxftzyPvw
+  clientSecret: c16c4433baadd63298870c894e5de48567786c06
+  repo: LeptusHe.github.io
+  githubID: LeptusHe
+  adminUser:
+  distractionFreeMode: false
 
 # Set true to show the page indicator.
 showPageCount: true
