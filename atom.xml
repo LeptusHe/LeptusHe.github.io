@@ -103,6 +103,8 @@
     <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
     
+    <category term="Temporal Antialiasing" scheme="http://example.com/tags/Temporal-Antialiasing/"/>
+    
   </entry>
   
   <entry>
@@ -129,8 +131,6 @@
     
     <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
-    
-    <category term="Temporal Antialiasing" scheme="http://example.com/tags/Temporal-Antialiasing/"/>
     
   </entry>
   
