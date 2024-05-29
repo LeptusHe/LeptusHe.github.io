@@ -11,7 +11,6 @@ hexo.extend.filter.register('after_post_render', process);
 const TypstExcerptGenerator = require("./typst-generator-excerpt");
 const typstExcerptGenerator = new TypstExcerptGenerator(hexo);
 function generateExcerpt(local) {
-    console.log("start to generate excerpt");
     return typstExcerptGenerator.process(local);
 }
 hexo.extend.generator.register('excerpt', generateExcerpt);

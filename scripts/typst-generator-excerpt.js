@@ -42,7 +42,6 @@ class TypstExcerptGenerator {
     }
 
     processPost(post) {
-        //console.log(`processPost: ${post.path}, ${post.content}`);
         if (post.source === undefined ||
             post.source == null ||
             !(post.source.endsWith(".typ") || post.source.endsWith(".typst"))
@@ -54,7 +53,7 @@ class TypstExcerptGenerator {
             };
         }
 
-        console.warn(`start to query abstract ${post.source}`)
+        this.info(`start to query abstract ${post.source}`)
         const excerpt = this.typstCli.queryMetadata(post, "abstract", (post, result) => {
             post.excerpt = result;
             this.info(`succeed to find abstract with excerpt tag: excerpt=${post.excerpt}, source=${post.source}`);
