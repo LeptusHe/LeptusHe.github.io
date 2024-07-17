@@ -33,7 +33,23 @@ Unity的Texture Splatting技术能够得到较好的过渡效果。但是，在�
 
 下一步需要考虑的问题是：如何将三角形使用的地形图层id存储在三角形顶点数据上。同时，如何在shader中获取该数据进行纹理采样。
 
+对于地表网格上的三角形，我们可以考虑将地表图层id存储在顶点颜色通道上。顶点颜色通道的格式为uint8，可以存储255个地表纹理图层id。同时，我们可以考虑使用纹理数组来存储地表图层纹理，因此在整个地形中，理论上我们可以最多使用255个地形纹理图层。
+
+对于地表图层id，我们可以在三角形的三个顶点颜色上都存储该图层id。设该图层id为$k$，则三个顶点颜色值都为$(k / 255, 0, 0)$。在经过渲染管线光栅化后，该三角形产生的fragment所得到的插值颜色值为：
+
+$
+c &= alpha dot.c R + beta dot.c G + gamma dot.c B \
+&= alpha dot.c (k / 255, 0, 0) + beta dot.c (k / 255, 0, 0) + gamma dot.c (k / 255, 0, 0) \
+&= (alpha + beta + gamma) dot.c (k / 255, 0, 0)
+$ <eq-color-rasterization>
+
+由于光栅化时，重心坐标$alpha, beta, gamma$的和为$1$。因此，@eq-color-rasterization 中光栅化插值得到的顶点属性值即为该三角形所使用的图层id。
+
 = 多层纹理地形
+
+当地形网格的三角形渲染时需要使用到多层地形纹理时，出于性能以及内存考虑，我们依然考虑将地形纹理图层的id存储在三角形颜色顶点数据中。
+
+虽然颜色
 
 = References
 - #link("https://en.wikipedia.org/wiki/Texture_splatting")[Texture Splatting - Wiki]
