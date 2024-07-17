@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-04-22T15:48:02.268Z</updated>
+  <updated>2024-07-17T06:43:05.367Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>球谐函数02 - 基础理论</title>
-    <link href="http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/"/>
-    <id>http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/</id>
-    <published>2023-07-08T16:00:00.000Z</published>
-    <updated>2024-04-22T15:48:02.268Z</updated>
+    <title>移动端地形渲染优化</title>
+    <link href="http://example.com/2024/07/17/rendering/mobile-terrain-optimization/"/>
+    <id>http://example.com/2024/07/17/rendering/mobile-terrain-optimization/</id>
+    <published>2024-07-16T16:00:00.000Z</published>
+    <updated>2024-07-17T06:43:05.367Z</updated>
     
     
       
@@ -40,7 +40,34 @@
     
     <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
-    <category term="数学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="渲染技术" scheme="http://example.com/tags/%E6%B8%B2%E6%9F%93%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>球谐函数02 - 基础理论</title>
+    <link href="http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/"/>
+    <id>http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/</id>
+    <published>2023-07-08T16:00:00.000Z</published>
+    <updated>2024-04-17T05:37:22.488Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+      &lt;script&gt;
+        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
+        document.ready(() =&gt; {
+ </summary>
+        
+      
+    
+    
+    
+    <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
     
     <category term="球谐函数" scheme="http://example.com/tags/%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/"/>
@@ -52,7 +79,7 @@
     <link href="http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
     <id>http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/</id>
     <published>2023-07-03T16:00:00.000Z</published>
-    <updated>2024-04-22T15:48:02.268Z</updated>
+    <updated>2024-04-17T05:22:22.857Z</updated>
     
     
       
@@ -69,12 +96,6 @@
     
     
     
-    <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
-    
-    <category term="数学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E6%95%B0%E5%AD%A6/"/>
-    
-    
-    <category term="球谐函数" scheme="http://example.com/tags/%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -83,7 +104,7 @@
     <link href="http://example.com/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/"/>
     <id>http://example.com/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/</id>
     <published>2019-03-10T16:00:00.000Z</published>
-    <updated>2024-04-22T15:48:02.270Z</updated>
+    <updated>2024-04-17T05:26:40.111Z</updated>
     
     
       
@@ -112,7 +133,7 @@
     <link href="http://example.com/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/"/>
     <id>http://example.com/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/</id>
     <published>2019-03-08T16:00:00.000Z</published>
-    <updated>2024-04-22T15:48:02.269Z</updated>
+    <updated>2024-04-17T05:26:40.119Z</updated>
     
     
       
@@ -139,7 +160,7 @@
     <link href="http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
     <id>http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</id>
     <published>2018-12-12T16:00:00.000Z</published>
-    <updated>2024-04-22T15:48:02.271Z</updated>
+    <updated>2024-05-08T06:29:48.113Z</updated>
     
     
       
@@ -158,8 +179,6 @@
     
     <category term="单元测试" scheme="http://example.com/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
-    
-    <category term="依赖注入" scheme="http://example.com/tags/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
