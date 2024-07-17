@@ -4,7 +4,7 @@
   title: "移动端地形渲染优化",
   author: ("Leptus He"),
   paper: "jis-b0",
-  preview: true
+  //preview: true
 )
 
 #metadata("渲染技术") <tags>
@@ -106,5 +106,5 @@ $
 
 
 = References
-- #link("https://en.wikipedia.org/wiki/Texture_splatting")[Texture Splatting - Wiki]
-- #link("https://github.com/microsoft/DirectXShaderCompiler/wiki/SV_Barycentrics")[DirectX - SV_Barycentrics]
+1. #link("https://en.wikipedia.org/wiki/Texture_splatting")[Texture Splatting - Wiki]
+2. #link("https://github.com/microsoft/DirectXShaderCompiler/wiki/SV_Barycentrics")[DirectX Documentation - SV_Barycentrics]
