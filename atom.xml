@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-07-17T06:43:05.367Z</updated>
+  <updated>2024-07-17T07:21:17.717Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2024/07/17/rendering/mobile-terrain-optimization/"/>
     <id>http://example.com/2024/07/17/rendering/mobile-terrain-optimization/</id>
     <published>2024-07-16T16:00:00.000Z</published>
-    <updated>2024-07-17T06:43:05.367Z</updated>
+    <updated>2024-07-17T07:21:17.717Z</updated>
     
     
       
@@ -69,6 +69,8 @@
     
     <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
+    <category term="数学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E6%95%B0%E5%AD%A6/"/>
+    
     
     <category term="球谐函数" scheme="http://example.com/tags/%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/"/>
     
@@ -96,6 +98,12 @@
     
     
     
+    <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
+    
+    <category term="数学" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="球谐函数" scheme="http://example.com/tags/%E7%90%83%E8%B0%90%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -153,6 +161,8 @@
     <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
     
     
+    <category term="Temporal Antialiasing" scheme="http://example.com/tags/Temporal-Antialiasing/"/>
+    
   </entry>
   
   <entry>
@@ -179,6 +189,8 @@
     
     <category term="单元测试" scheme="http://example.com/categories/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
     
+    
+    <category term="依赖注入" scheme="http://example.com/tags/%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
