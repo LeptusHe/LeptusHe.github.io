@@ -1,0 +1,150 @@
+#let problem_counter = counter("problem")
+
+#let problem(name, body) = {
+  problem_counter.step()
+  let fill_color = rgb(31, 199, 31)
+
+  block(fill: fill_color.lighten(96%), 
+   width: 100%,
+   inset: 8pt,
+   radius: 4pt,
+   stroke: rgb(31, 199, 31),
+   [
+     #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%),
+           [例 #problem_counter.display() (#name)]))
+            #v(10pt)
+            #body
+   ])
+}
+
+#let proof(body) = {
+  let fill_color = rgb(255, 134, 24)
+
+  block(fill: fill_color.lighten(96%), 
+   width: 100%,
+   inset: 8pt,
+   radius: 4pt,
+   stroke: fill_color.lighten(50%),
+   [
+     #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%),
+           [证明如下： ]))
+            #v(15pt)
+            #body
+   ])
+}
+
+#let note(body) = {
+  let fill_color = rgb(255, 134, 24)
+
+  block(fill: fill_color.lighten(96%), 
+   width: 100%,
+   inset: 8pt,
+   radius: 4pt,
+   stroke: fill_color.lighten(50%),
+   [
+     #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%),
+           [注意： ]))
+            #v(10pt)
+            #body
+   ])
+}
+
+#let custom_math_env(counter, fill_color, env_name, name, body) = {
+  counter.step()
+  block(fill: fill_color.lighten(96%), 
+   width: 100%,
+   inset: 8pt,
+   radius: 4pt,
+   stroke: fill_color.lighten(50%),
+   [
+     #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%), [#env_name #counter.display() (#name)]))
+     #v(15pt)
+     #body
+  ])
+}
+
+
+#let definition_counter = counter("definition")
+#let definition = custom_math_env.with(definition_counter, rgb(0, 166, 82), "定义")
+
+#let theorem_counter = counter("theorem")
+#let theorem = custom_math_env.with(theorem_counter, rgb(255, 134, 24), "定理")
+
+#let postulate_counter = counter("postulate")
+#let postulate = custom_math_env.with(postulate_counter, rgb(255, 134, 24), "公设")
+
+#let axiom_counter = counter("axiom")
+#let axiom = custom_math_env.with(axiom_counter, rgb(255, 134, 24), "公理")
+
+#let lemma_counter = counter("lemma")
+#let lemma = custom_math_env.with(lemma_counter, rgb(255, 134, 24), "引理")
+
+#let corollary_counter = counter("corollary")
+#let corollary = custom_math_env.with(corollary_counter, rgb(255, 134, 24), "推论")
+
+#let lemma_counter = counter("lemma")
+#let lemma = custom_math_env.with(lemma_counter, rgb(255, 134, 24), "引理")
+
+#let proposition_counter = counter("proposition")
+#let proposition = custom_math_env.with(proposition_counter, rgb(0, 174, 247), "命题")
+
+#let example_counter = counter("example")
+#let example = custom_math_env.with(example_counter, rgb(0, 174, 247), "例题")
+
+#let illustrate_counter = counter("illustrate")
+#let illustrate = custom_math_env.with(illustrate_counter, rgb(0, 174, 247), "结论")
+
+#let summary(items) = {
+  let left_items_pair = items.enumerate().filter(((i, item)) => calc.odd(i) == false)
+  let right_items_pair = items.enumerate().filter(((i, item)) => calc.odd(i) == true)
+
+  let left_items = left_items_pair.map(((i, item)) => item)
+  let right_items = right_items_pair.map(((i, item)) => item)
+  let color = rgb("#3b71b7")
+
+  block(fill: color.lighten(90%), 
+    width: 100%,
+    inset: 8pt,
+    radius: 1pt,
+    stroke: (x: color.lighten(80%), y: color.lighten(0%)),
+    [
+      #place(center, dx: 0pt, dy: -18pt, rect(fill: color.lighten(20%),
+        radius: 4pt,
+        inset: 5pt,
+        outset: 2pt,
+        [内容提要]))
+
+      #columns(2, gutter: 20pt)[
+        #enum(..left_items)
+        #colbreak()
+        #enum(..right_items)
+      ]
+  ])
+}
+
+#let questions(items) = {
+  let color = rgb("#3b71b7")
+
+  block(fill: color.lighten(90%), 
+    width: 100%,
+    inset: 8pt,
+    radius: 1pt,
+    stroke: (x: color.lighten(80%), y: color.lighten(0%)),
+    [
+      #place(center, dx: 0pt, dy: -18pt, rect(fill: color.lighten(20%),
+        radius: 4pt,
+        inset: 5pt,
+        outset: 2pt,
+        [内容思考]))
+
+      #v(10pt)
+      #enum(..items, numbering: n => [#box(width: 8pt, height: 10pt, fill: color.lighten(30%))])
+  ])
+}
+
+#show ref: it => {
+  let el = it.element;
+  if el.func() == lemma {
+    引理
+  }
+}

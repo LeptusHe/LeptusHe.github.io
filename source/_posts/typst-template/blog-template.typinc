@@ -2,6 +2,9 @@
 #import "@preview/codelst:2.0.0": sourcecode
 #import "@preview/ouset:0.1.1": *
 #import "@preview/mitex:0.2.3": *
+#import "@preview/quick-maths:0.1.0": shorthands
+
+#import "common.typ": *
 
 #let blog_setting(title: "blog", author: (), preview: false, paper: "a0", body) = {
   
