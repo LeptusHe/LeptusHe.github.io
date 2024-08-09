@@ -3,7 +3,7 @@ import shutil
 
 from tools.cmd_tool import *
 
-typst_ts_cli_version = "0.4.1"
+typst_ts_cli_version = "0.5.0-rc6"
 
 
 def find_directory_and_file(directory, subdirectory, filename):
@@ -41,9 +41,9 @@ def install_typst():
 
 
 def download_typst_ts_cli(version):
-    # install typst-ts-cli version v0.4.1
+    # install typst-ts-cli version ${version}
     os.system(
-        f"cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli --tag v0.4.1 --version ${version}")
+        f"cargo install --git https://github.com/Myriad-Dreamin/typst.ts typst-ts-cli --tag {version} --version ${version}")
 
 
 def install_typst_ts_cli():
