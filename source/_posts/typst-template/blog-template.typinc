@@ -4,7 +4,7 @@
 #import "@preview/mitex:0.2.3": *
 #import "@preview/quick-maths:0.1.0": shorthands
 
-#import "common.typ": *
+#import "common.typinc": *
 
 #let blog_setting(title: "blog", author: (), preview: false, paper: "a0", body) = {
   
