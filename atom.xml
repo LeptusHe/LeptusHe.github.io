@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-07-17T07:21:17.717Z</updated>
+  <updated>2024-08-05T12:58:02.457Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>傅里叶变换01 - 傅里叶级数</title>
+    <link href="http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/"/>
+    <id>http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/</id>
+    <published>2024-08-04T16:00:00.000Z</published>
+    <updated>2024-08-05T12:58:02.457Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
+        
+      
+    
+    
+    
+    <category term="数学" scheme="http://example.com/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+    <category term="傅里叶变换" scheme="http://example.com/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity的法线压缩与解码</title>
+    <link href="http://example.com/2024/07/17/rendering/normal-map-compression/"/>
+    <id>http://example.com/2024/07/17/rendering/normal-map-compression/</id>
+    <published>2024-07-16T16:00:00.000Z</published>
+    <updated>2024-07-19T08:16:48.728Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
+        
+      
+    
+    
+    
+    <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
+    
+    
+    <category term="渲染技术" scheme="http://example.com/tags/%E6%B8%B2%E6%9F%93%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>移动端地形渲染优化</title>
@@ -28,11 +86,11 @@
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
@@ -57,11 +115,11 @@
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
@@ -81,18 +139,18 @@
     <link href="http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
     <id>http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/</id>
     <published>2023-07-03T16:00:00.000Z</published>
-    <updated>2024-04-17T05:22:22.857Z</updated>
+    <updated>2024-08-05T13:03:06.886Z</updated>
     
     
       
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
@@ -119,11 +177,11 @@
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
@@ -148,11 +206,11 @@
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
@@ -177,11 +235,11 @@
       
         
         
-    <summary type="html">
-      &lt;script&gt;
-        let appContainer = document.currentScript &amp;&amp; document.currentScript.parentElement;
-        document.ready(() =&gt; {
- </summary>
+    <summary type="html">&lt;script&gt;window.typstBindSvgDom = function () {};
+window.captureStack = function () {
+  return undefined;
+};
+let appContainer =</summary>
         
       
     
