@@ -3,7 +3,7 @@
 #import "@preview/showybox:1.1.0": showybox
 #import "@preview/splash:0.3.0": *
 
-#import "./math/math-inc.typ": *
+#import "./math/math-inc.typinc": *
 
 // important text
 #let im = (content) => {
