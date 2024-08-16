@@ -1,4 +1,4 @@
-#import "./typst-template/blog-template.typinc": *
+#import "./typst-template/blog-template.typc": *
 
 #show: blog_setting.with(
   title: "编写可测试的代码-依赖注入",

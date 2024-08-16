@@ -4,15 +4,20 @@
 #import "@preview/mitex:0.2.3": *
 #import "@preview/quick-maths:0.1.0": shorthands
 
-#import "common.typinc": *
+#import "common.typc": *
 
 #let blog_setting(title: "blog", author: (), preview: false, paper: "a0", body) = {
-  
+  let page_color = rgb(0, 0, 0, 0)
+  if preview {
+    page_color = rgb(46, 64, 91, 255)
+  }
+
   set document(title: title, author: author)
   set page(paper: paper,
     width: 26cm,
     margin: 5pt,
-    columns: 1
+    columns: 1,
+    fill: page_color
   )
 
   let body-font = "霞骛文楷"

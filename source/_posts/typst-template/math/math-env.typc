@@ -20,11 +20,15 @@
 #let proof(body) = {
   let fill_color = rgb(255, 134, 24)
 
-  block(fill: fill_color.lighten(96%), 
+  set text(
+   size: 20pt,
+   fill: black)
+
+  block(fill: fill_color.lighten(90%), 
    width: 100%,
    inset: 8pt,
    radius: 4pt,
-   stroke: fill_color.lighten(50%),
+   stroke: 0pt + fill_color.lighten(0%),
    [
      #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%),
            [证明如下： ]))
@@ -51,11 +55,16 @@
 
 #let custom_math_env(counter, fill_color, env_name, name, body) = {
   counter.step()
-  block(fill: fill_color.lighten(96%), 
+
+  set text(
+   size: 20pt,
+   fill: black)
+
+  block(fill: fill_color.lighten(95%), 
    width: 100%,
    inset: 8pt,
    radius: 4pt,
-   stroke: fill_color.lighten(50%),
+   stroke: 1pt + fill_color.lighten(50%),
    [
      #place(dx: 4pt, dy: -15pt, rect(fill: fill_color.lighten(20%), [#env_name #counter.display() (#name)]))
      #v(15pt)
@@ -77,13 +86,10 @@
 #let axiom = custom_math_env.with(axiom_counter, rgb(255, 134, 24), "公理")
 
 #let lemma_counter = counter("lemma")
-#let lemma = custom_math_env.with(lemma_counter, rgb(255, 134, 24), "引理")
+#let lemma = custom_math_env.with(lemma_counter, rgb("#856d72"), "引理")
 
 #let corollary_counter = counter("corollary")
 #let corollary = custom_math_env.with(corollary_counter, rgb(255, 134, 24), "推论")
-
-#let lemma_counter = counter("lemma")
-#let lemma = custom_math_env.with(lemma_counter, rgb(255, 134, 24), "引理")
 
 #let proposition_counter = counter("proposition")
 #let proposition = custom_math_env.with(proposition_counter, rgb(0, 174, 247), "命题")

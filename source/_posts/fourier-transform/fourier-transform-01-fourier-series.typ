@@ -1,10 +1,10 @@
-#import "../typst-template/blog-template.typinc": * 
+#import "../typst-template/blog-template.typc": * 
 
 #show: blog_setting.with(
   title: "傅里叶变换01 - 傅里叶级数",
   author: ("Leptus He"),
   paper: "jis-b0",
-  preview: true
+  preview: false
 )
 
 #metadata("傅里叶变换") <tags>
