@@ -1,4 +1,4 @@
-#import "../typst-template/blog-template.typc": * 
+#import "../typst-inc/blog-inc.typc": * 
 
 #show: blog_setting.with(
   title: "球谐函数02 - 基础理论",

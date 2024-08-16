@@ -1,4 +1,4 @@
-#import "../typst-template/blog-template.typc": * 
+#import "../typst-inc/blog-inc.typc": * 
 
 #show: blog_setting.with(
   title: "移动端地形渲染优化",
