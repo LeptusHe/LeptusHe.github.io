@@ -1,4 +1,4 @@
-#import "../typst-template/blog-template.typc": * 
+#import "../typst-inc/blog-template.typc": * 
 
 #show: blog_setting.with(
   title: "傅里叶变换01 - 傅里叶级数",
