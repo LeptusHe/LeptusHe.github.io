@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-08-16T12:33:05.809Z</updated>
+  <updated>2024-09-24T12:19:51.563Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>傅里叶变换01 - 傅里叶级数</title>
-    <link href="http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/"/>
-    <id>http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/</id>
-    <published>2024-08-04T16:00:00.000Z</published>
-    <updated>2024-08-16T12:33:05.809Z</updated>
+    <title>傅里叶变换02 - 傅里叶变换</title>
+    <link href="http://example.com/2024/09/21/fourier-transform/fourier-transform-02-fourier-series/"/>
+    <id>http://example.com/2024/09/21/fourier-transform/fourier-transform-02-fourier-series/</id>
+    <published>2024-09-20T16:00:00.000Z</published>
+    <updated>2024-09-24T12:19:51.563Z</updated>
     
     
       
@@ -46,11 +46,11 @@ let appContainer =</summary>
   </entry>
   
   <entry>
-    <title>Unity的法线压缩与解码</title>
-    <link href="http://example.com/2024/07/17/rendering/normal-map-compression/"/>
-    <id>http://example.com/2024/07/17/rendering/normal-map-compression/</id>
-    <published>2024-07-16T16:00:00.000Z</published>
-    <updated>2024-08-14T08:33:04.525Z</updated>
+    <title>傅里叶变换01 - 傅里叶级数</title>
+    <link href="http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/"/>
+    <id>http://example.com/2024/08/05/fourier-transform/fourier-transform-01-fourier-series/</id>
+    <published>2024-08-04T16:00:00.000Z</published>
+    <updated>2024-08-16T13:00:01.782Z</updated>
     
     
       
@@ -67,10 +67,10 @@ let appContainer =</summary>
     
     
     
-    <category term="图形渲染" scheme="http://example.com/categories/%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93/"/>
+    <category term="数学" scheme="http://example.com/categories/%E6%95%B0%E5%AD%A6/"/>
     
     
-    <category term="渲染技术" scheme="http://example.com/tags/%E6%B8%B2%E6%9F%93%E6%8A%80%E6%9C%AF/"/>
+    <category term="傅里叶变换" scheme="http://example.com/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
   </entry>
   
@@ -79,7 +79,7 @@ let appContainer =</summary>
     <link href="http://example.com/2024/07/17/rendering/mobile-terrain-optimization/"/>
     <id>http://example.com/2024/07/17/rendering/mobile-terrain-optimization/</id>
     <published>2024-07-16T16:00:00.000Z</published>
-    <updated>2024-08-14T08:32:36.031Z</updated>
+    <updated>2024-08-16T13:00:15.081Z</updated>
     
     
       
@@ -108,7 +108,7 @@ let appContainer =</summary>
     <link href="http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/"/>
     <id>http://example.com/2023/07/09/spherical-harmonics/spherical-harmonics-02-basis/</id>
     <published>2023-07-08T16:00:00.000Z</published>
-    <updated>2024-08-14T08:32:26.167Z</updated>
+    <updated>2024-08-16T13:00:29.532Z</updated>
     
     
       
@@ -139,7 +139,7 @@ let appContainer =</summary>
     <link href="http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/"/>
     <id>http://example.com/2023/07/04/spherical-harmonics/spherical-harmonics-01-function-fitting/</id>
     <published>2023-07-03T16:00:00.000Z</published>
-    <updated>2024-08-14T08:32:17.426Z</updated>
+    <updated>2024-08-16T13:00:59.209Z</updated>
     
     
       
@@ -170,7 +170,7 @@ let appContainer =</summary>
     <link href="http://example.com/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/"/>
     <id>http://example.com/2019/03/11/temporal-antialiasing/temporal-antialiasing-02/</id>
     <published>2019-03-10T16:00:00.000Z</published>
-    <updated>2024-08-14T08:43:19.116Z</updated>
+    <updated>2024-08-16T13:01:10.567Z</updated>
     
     
       
@@ -199,7 +199,7 @@ let appContainer =</summary>
     <link href="http://example.com/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/"/>
     <id>http://example.com/2019/03/09/temporal-antialiasing/temporal-antialiasing-01/</id>
     <published>2019-03-08T16:00:00.000Z</published>
-    <updated>2024-08-14T09:23:53.819Z</updated>
+    <updated>2024-08-16T13:01:05.670Z</updated>
     
     
       
@@ -228,7 +228,7 @@ let appContainer =</summary>
     <link href="http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/"/>
     <id>http://example.com/2018/12/13/%E7%BC%96%E5%86%99%E5%8F%AF%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BB%A3%E7%A0%81-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</id>
     <published>2018-12-12T16:00:00.000Z</published>
-    <updated>2024-08-14T08:32:53.997Z</updated>
+    <updated>2024-08-16T13:01:44.742Z</updated>
     
     
       
