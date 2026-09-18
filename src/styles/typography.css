@@ -134,18 +134,53 @@ a:hover, a:focus-visible {
 .post-content > nav, .post-content .outline > nav { display: none; }
 .post-content .typst-content-link.shiroa-heading-hash { display: none !important; }
 .post-content h1, .post-content h2, .post-content h3, .post-content h4 { margin: 1.2em 0 .45em; line-height: 1.25; }
-.post-content h1 { font-size: 42px; }
-.post-content h2 { font-size: 36px; }
-.post-content h3 { font-size: 30px; }
-.post-content h4 { font-size: 24px; }
+.post-content h1 { font-size: 32px; }
+.post-content h2 { font-size: 28px; }
+.post-content h3 { font-size: 23px; }
+.post-content h4 { font-size: 19px; }
 .post-content p { margin: 0 0 .85em; }
 .post-content img { display: block; max-width: 100%; height: auto; margin: 1.2em auto; }
 .post-content figure { max-width: 100%; margin: 1.2em 0; overflow-x: auto; }
 .post-content figcaption { text-align: center; }
 .post-content table { max-width: 100%; border-collapse: collapse; }
 .post-content th, .post-content td { padding: .4em .6em; border: 1px solid rgba(255, 255, 255, .35); }
-.post-content pre { max-width: 100%; padding: 1em; overflow-x: auto; background: rgba(255, 255, 255, .08); }
-.post-content code, .post-content pre { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; font-size: .9em; }
+.post-content pre:not(.zebraw-code-line) { max-width: 100%; padding: 1em; overflow-x: auto; background: rgba(255, 255, 255, .08); }
+.post-content code, .post-content pre:not(.zebraw-code-line) { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; font-size: .9em; }
+
+/* A muted blue-black panel keeps the code block within Typography's dark
+   palette while remaining distinct from the article card. */
+.post-content .code-image.themed { margin: 1em 0; border-radius: .34em; overflow: hidden; }
+.post-content .code-image.themed > .dark { display: block; }
+.post-content .code-image.themed > .light { display: none; }
+.post-content .code-image.themed .zebraw-code-block { font-size: .8em !important; }
+.post-content .code-image.themed .dark .zebraw-code-line-container { background: #1b2a3b !important; }
+.post-content .code-image.themed .zebraw-code-line {
+  max-width: none;
+  padding-left: 1.1em !important;
+  padding-right: 1.1em !important;
+  overflow: visible;
+  background: transparent;
+  color: #d7e0ec;
+  font-family: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1em;
+  line-height: 1.5;
+}
+.post-content .code-image.themed .zebraw-code-line-container > pre:first-child {
+  max-width: none;
+  overflow: visible;
+  background: #162536;
+  border-right: 1px solid #31455c;
+  color: #7f91a8 !important;
+  font-family: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1em;
+  line-height: 1.5;
+}
+/* The renderer nests plain text inside its coloured token span.  Let that
+   inner text inherit the token colour instead of resetting it to the default. */
+.post-content .code-image.themed .zebraw-code-line span span { color: inherit !important; }
+.post-content .code-image.themed .zebraw-code-line > span[style*="color:#d73948"] { color: #ff899d !important; }
+.post-content .code-image.themed .zebraw-code-line > span[style*="color:#4b69c6"] { color: #8db8ff !important; }
+.post-content .code-image.themed .zebraw-code-line > span[style*="color:#198810"] { color: #91d49c !important; }
 .post-content blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid #fff; }
 .post-content math[display="block"] {
   width: 100%;
@@ -215,9 +250,9 @@ a:hover, a:focus-visible {
   .post-meta { font-size: 14px; }
   .post-abstract { font-size: 16px; }
   .post-container-detail .post-title, .page-title { font-size: 32px; }
-  .post-content h1 { font-size: 34px; }
-  .post-content h2 { font-size: 28px; }
-  .post-content h3 { font-size: 23px; }
-  .post-content h4 { font-size: 19px; }
+  .post-content h1 { font-size: 30px; }
+  .post-content h2 { font-size: 26px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
   .post-content math[display="block"] { font-size: .9em; }
 }
