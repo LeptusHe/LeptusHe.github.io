@@ -29,6 +29,8 @@ body {
   background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
   background-size: 6px 6px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .04);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html, body, span, p, h1, h2, h3, h4, h5, h6 {
@@ -100,7 +102,7 @@ a:hover, a:focus-visible {
   overflow: hidden;
 }
 
-.post-container { margin: 0 0 20px; padding: 25px; border-radius: 30px; background: #253549; box-shadow: 2px 2px 2px 2px #161823; }
+.post-container { margin: 0 0 20px; padding: 25px; border-radius: 30px; background: #253549; box-shadow: 2px 2px 2px 2px #161823; font-weight: normal; }
 .post-container, .post-container * { color: #fff; }
 .post-container a:hover { color: #2e405b; background: #fff; }
 .post-title { margin: 3px 0; font-size: 24px; font-weight: bold; }
