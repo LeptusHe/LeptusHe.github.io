@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>书籍式章节标题样例 v3</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh; margin: 0; padding: 48px 24px;
+      color: #d8e3e7; background-color: #2e405b;
+      background-image: linear-gradient(rgba(255,255,255,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.032) 1px,transparent 1px);
+      background-size: 6px 6px;
+      font-family: "LXGW WenKai", "Source Han Serif CN", "Noto Serif CJK SC", serif;
+    }
+    .preview { width: min(700px,100%); margin: 0 auto; padding: 34px 38px 42px; border-radius: 24px; background: #253549; box-shadow: 2px 2px 2px 2px #161823; }
+    .caption { margin: 0 0 32px; color: #9aabba; font: 12px/1.5 system-ui,sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    p { margin: 0 0 1em; font-size: 15px; line-height: 1.82; }
+    .heading { color: #edf3f7; font-weight: 500; line-height: 1.35; }
+    .heading-number { margin-right: .38em; color: #80baec; font-size: .95em; font-weight: 500; font-variant-numeric: tabular-nums; }
+    .level-1 { margin: 0 0 .72em; padding-bottom: .46em; border-bottom: 1px solid rgba(128,186,236,.24); font-size: 26px; }
+    .level-2 { margin: 1.75em 0 .58em; color: #e4ebf0; font-size: 21px; }
+    .level-3 { margin: 1.6em 0 .5em; color: #d8e3e7; font-size: 18px; }
+    .level-3 .heading-number { color: #7198b4; }
+    .important { color: #80baec; }
+    @media (max-width:600px) {
+      body { padding: 18px 12px; }
+      .preview { padding: 26px 22px 34px; border-radius: 18px; }
+      .level-1 { font-size: 24px; }
+      .level-2 { font-size: 19px; }
+      .level-3 { font-size: 17px; }
+      p { font-size: 14.5px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="preview">
+    <p class="caption">Book-like hierarchy · 编号比例调整至 95%</p>
+    <h2 class="heading level-1"><span class="heading-number">1.</span>傅里叶变换</h2>
+    <p>周期为 T 的函数可以用傅里叶级数表示，但是无法表示<span class="important">非周期函数</span>。非周期函数可以看作周期趋向无穷的周期函数。</p>
+    <h3 class="heading level-2"><span class="heading-number">1.1.</span>周期离散信号的表示</h3>
+    <p>对于离散信号，如果满足周期条件，则该信号可以由有限个正交基函数的线性组合表示。</p>
+    <h4 class="heading level-3"><span class="heading-number">1.1.1.</span>单位根及其性质</h4>
+    <p>单位根在复平面上均匀分布，并具有周期性、对称性以及可递归分解的结构。</p>
+  </main>
+</body>
+</html>

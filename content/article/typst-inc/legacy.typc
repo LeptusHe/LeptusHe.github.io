@@ -11,18 +11,40 @@
 
 #let cIntegral(integrand) = $integral #integrand$
 
-#let im(body) = strong(body)
+#let im(body) = context if std.target() == "html" {
+  html.elem("span", body, attrs: (class: "typst-important"))
+} else {
+  strong(body)
+}
 
-#let callout(kind, body, title: none) = block(
-  width: 100%,
-  inset: 0.8em,
-  stroke: (left: 3pt + rgb("#cf829e")),
-  [
-    *#kind#if title != none [：#title]*
-    #linebreak()
-    #body
-  ],
-)
+#let callout(kind, body, title: none) = context {
+  if std.target() == "html" {
+    let env-class = if kind == "定义" {
+      "typst-definition"
+    } else if kind == "引理" {
+      "typst-lemma"
+    } else {
+      "typst-proof"
+    }
+    let label = if title == none { [#kind] } else { [#kind：#title] }
+
+    html.elem("aside", [
+      #html.elem("div", label, attrs: (class: "typst-environment-label"))
+      #html.elem("div", body, attrs: (class: "typst-environment-body"))
+    ], attrs: (class: "typst-environment " + env-class))
+  } else {
+    block(
+      width: 100%,
+      inset: 0.8em,
+      stroke: (left: 3pt + rgb("#cf829e")),
+      [
+        *#kind#if title != none [：#title]*
+        #linebreak()
+        #body
+      ],
+    )
+  }
+}
 
 #let proof(body) = callout("证明", body)
 #let definition(title, body) = callout("定义", body, title: title)

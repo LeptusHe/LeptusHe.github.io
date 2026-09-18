@@ -1,9 +1,10 @@
 @import "lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css";
 @import "lxgw-wenkai-screen-webfont/lxgwwenkaiscreenr.css";
+@import "lxgw-wenkai-webfont/lxgwwenkai-regular.css";
 
 @font-face {
   font-family: "FontAwesome";
-  src: url("../../themes/typography/source/fonts/fontawesome-webfont.woff2") format("woff2");
+  src: url("/themes/typography/source/fonts/fontawesome-webfont.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -22,14 +23,14 @@ html { background: #2e405b; }
 body {
   min-height: 100vh;
   margin: 0;
-  color: #fff;
-  font-size: 18px;
-  line-height: 1.5;
+  color: #e6edf5;
+  font-size: 16.5px;
+  line-height: 1.82;
   text-align: left;
   background-color: #2e405b;
-  background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, .032) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .032) 1px, transparent 1px);
   background-size: 6px 6px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .04);
+  text-shadow: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -123,21 +124,99 @@ a:hover, a:focus-visible {
 .post-container-detail .meta-icon { margin-right: 4px; }
 .post-abstract { padding-top: 5px; font-size: 18px; }
 
-.post-container-detail { margin: 0 0 20px; }
+.post-container-detail { max-width: 720px; margin: 0 0 20px; }
 .post-container-detail > header { margin-bottom: 28px; }
-.post-container-detail .post-title { font-size: 34px; }
+.post-container-detail .post-title { font-size: 26px; }
 .post-container-detail .post-title a { border-bottom: 0; }
 .post-container-detail .post-title a:hover { color: #2e405b; background: #fff; }
+.post-container-detail .post-meta { font-size: 14px; line-height: 1.65; }
 
-.post-content { overflow-wrap: anywhere; }
+.post-content,
+.post-content p,
+.post-content li,
+.post-content blockquote,
+.post-content figcaption,
+.post-content table,
+.post-content th,
+.post-content td,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  font-family: "LXGW WenKai", "Source Han Serif CN", "Source Han Serif SC", "Noto Serif CJK SC", serif;
+}
+
+.post-content {
+  color: #d8e3e7;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
 .post-content > :first-child { margin-top: 0; }
 .post-content > nav, .post-content .outline > nav { display: none; }
+.post-content .outline + hr { display: none; }
+.post-content .outline + hr + div > h2 { margin-top: 1.15em; }
 .post-content .typst-content-link.shiroa-heading-hash { display: none !important; }
-.post-content h1, .post-content h2, .post-content h3, .post-content h4 { margin: 1.2em 0 .45em; line-height: 1.25; }
-.post-content h1 { font-size: 32px; }
-.post-content h2 { font-size: 28px; }
-.post-content h3 { font-size: 23px; }
-.post-content h4 { font-size: 19px; }
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  line-height: 1.3;
+  font-weight: 500;
+}
+.post-content h1,
+.post-content h2 {
+  margin: 1.7em 0 .72em;
+  padding-bottom: .46em;
+  color: #edf3f7;
+  border-bottom: 1px solid rgba(128, 186, 236, .24);
+}
+.post-content h3 {
+  margin: 1.8em 0 .58em;
+  color: #e4ebf0;
+}
+.post-content h4 {
+  margin: 1.65em 0 .5em;
+  color: #d8e3e7;
+}
+.post-content h1 { font-size: 26px; }
+.post-content h2 { font-size: 24px; }
+.post-content h3 { font-size: 20px; }
+.post-content h4 { font-size: 18px; }
+.post-content .typst-heading-number {
+  margin-right: .38em;
+  color: #80baec;
+  font-size: .95em;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+.post-content h4 .typst-heading-number { color: #7198b4; }
+.post-content .typst-important {
+  color: #80c8f5;
+  font-weight: normal;
+}
+.post-content .typst-environment {
+  --typst-accent: #cf829e;
+  max-width: 100%;
+  margin: 1.25em 0;
+  padding: .85em 1em .9em;
+  overflow-wrap: anywhere;
+  color: #e6edf5;
+  border-left: 3px solid var(--typst-accent);
+  border-radius: 0 .5em .5em 0;
+  background: rgba(14, 28, 44, .52);
+}
+.post-content .typst-environment-label {
+  margin: 0 0 .48em;
+  color: var(--typst-accent);
+  font-weight: 600;
+}
+.post-content .typst-environment-body > :last-child { margin-bottom: 0; }
+.post-content .typst-proof { --typst-accent: #f0a45f; }
+.post-content .typst-definition { --typst-accent: #78c69d; }
+.post-content .typst-lemma { --typst-accent: #c1a2ad; }
+.post-content .typst-proposition { --typst-accent: #78bce6; }
 .post-content p { margin: 0 0 .85em; }
 .post-content img { display: block; max-width: 100%; height: auto; margin: 1.2em auto; }
 .post-content figure { max-width: 100%; margin: 1.2em 0; overflow-x: auto; }
@@ -249,10 +328,13 @@ a:hover, a:focus-visible {
   .post-title { font-size: 20px; }
   .post-meta { font-size: 14px; }
   .post-abstract { font-size: 16px; }
-  .post-container-detail .post-title, .page-title { font-size: 32px; }
-  .post-content h1 { font-size: 30px; }
-  .post-content h2 { font-size: 26px; }
-  .post-content h3 { font-size: 22px; }
-  .post-content h4 { font-size: 18px; }
+  .post-container-detail .post-title, .page-title { font-size: 24px; }
+  .post-container-detail .post-meta { font-size: 13px; }
+  .post-content { font-size: 14.5px; }
+  .post-content h1 { font-size: 24px; }
+  .post-content h2 { font-size: 22px; }
+  .post-content h3 { font-size: 19px; }
+  .post-content h4 { font-size: 17px; }
+  .post-content .typst-environment { padding: .75em .85em; }
   .post-content math[display="block"] { font-size: .9em; }
 }

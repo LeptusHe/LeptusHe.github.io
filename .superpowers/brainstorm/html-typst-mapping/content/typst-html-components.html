@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #e6edf5; background: #2e405b; font: 16px/1.8 Georgia, "LXGW WenKai", serif; }
+    main { max-width: 1240px; margin: auto; padding: 42px 30px 70px; }
+    h1 { margin: 0 0 8px; font: 700 28px/1.3 "LXGW WenKai", serif; }
+    .lead { margin: 0 0 32px; color: #b9c8d8; }
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .panel { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.2); border-radius: 14px; background: #253549; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    .panel-label { padding: 12px 18px; color: #aabacd; font: 700 12px/1 sans-serif; letter-spacing: .08em; background: rgba(0,0,0,.16); }
+    article { padding: 28px; }
+    article h2 { margin: 0 0 16px; font: 700 27px/1.25 "LXGW WenKai", serif; }
+    article h3 { margin: 30px 0 12px; font: 700 22px/1.3 "LXGW WenKai", serif; }
+    article p { margin: 0 0 16px; }
+    .current strong { color: inherit; font-weight: 700; }
+    .target .heading-number { margin-right: .45em; color: #9cb9da; font-variant-numeric: tabular-nums; }
+    .target .typst-important { color: #89bbff; font-weight: 400; }
+    .typst-proof { position: relative; margin: 32px 0 12px; padding: 28px 18px 16px; color: #202a33; border: 1px solid #ff8618; border-radius: 5px; background: #fff1e4; }
+    .typst-proof__label { position: absolute; top: -14px; left: 13px; padding: 3px 10px; border-radius: 3px; color: #fff; background: #ff8618; font: 700 14px/1.35 "LXGW WenKai", serif; }
+    .typst-proof p { margin: 0; }
+    .notice { margin-top: 26px; padding: 14px 16px; border-left: 3px solid #89bbff; color: #c9d8e8; background: rgba(137,187,255,.08); }
+    @media (max-width: 800px) { .split { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Typst HTML 语义映射：视觉目标</h1>
+    <p class="lead">左侧是当前导出结果；右侧是公共 Typst 模板在 HTML 目标下应输出的语义结构及其网页呈现。</p>
+    <div class="split">
+      <section class="panel current">
+        <div class="panel-label">当前：结构信息丢失后，由通用 CSS 渲染</div>
+        <article>
+          <h2>傅里叶变换</h2>
+          <p>周期函数可以用傅里叶级数表示，但是无法表示<strong>非周期函数</strong>。</p>
+          <h3>周期离散信号的表示</h3>
+          <div><p><strong>证明</strong><br>这里是证明内容与公式。</p></div>
+        </article>
+      </section>
+      <section class="panel target" data-choice="semantic-html" onclick="toggleSelect(this)">
+        <div class="panel-label">目标：Typst 输出语义组件，CSS 只呈现其视觉</div>
+        <article>
+          <h2><span class="heading-number">1.</span>傅里叶变换</h2>
+          <p>周期函数可以用傅里叶级数表示，但是无法表示<span class="typst-important">非周期函数</span>。</p>
+          <h3><span class="heading-number">1.1.</span>周期离散信号的表示</h3>
+          <aside class="typst-proof">
+            <div class="typst-proof__label">证明如下：</div>
+            <p>这里是证明内容与公式。</p>
+          </aside>
+        </article>
+      </section>
+    </div>
+    <p class="notice">实施范围：标题编号、重点文字、证明/定义类环境和代码块的 HTML 语义输出；文章内容保持一份 Typst 源码不变。</p>
+  </main>
+</body>
+</html>
