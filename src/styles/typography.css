@@ -120,6 +120,7 @@ a:hover, a:focus-visible {
 .meta-tag::before { content: "\f02b"; }
 .post-meta .meta-item { margin: 0 10px 0 0; }
 .post-meta .a-tag { border-bottom-color: currentColor; }
+.post-container-detail .meta-icon { margin-right: 4px; }
 .post-abstract { padding-top: 5px; font-size: 18px; }
 
 .post-container-detail { margin: 0 0 20px; }
