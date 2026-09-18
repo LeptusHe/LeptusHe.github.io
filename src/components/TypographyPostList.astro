@@ -20,16 +20,14 @@ const { posts } = Astro.props;
         <p class="post-meta">
           发布于 <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
           {getCategories(post).length > 0 && (
-            <>
-              <span class="meta-icon" aria-hidden="true">◆</span>
+            <span class="meta-group">
               {getCategories(post).map((category) => <span class="meta-item">{category}</span>)}
-            </>
+            </span>
           )}
           {getPostTags(post).length > 0 && (
-            <>
-              <span class="meta-icon" aria-hidden="true">#</span>
+            <span class="meta-group">
               {getPostTags(post).map((tag) => <span class="meta-item">{tag}</span>)}
-            </>
+            </span>
           )}
         </p>
         {post.data.description && <div class="post-abstract">{post.data.description}</div>}

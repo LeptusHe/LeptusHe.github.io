@@ -23,16 +23,14 @@ const postTags = getPostTags({ data: { tags } } as never);
         <p class="post-meta">
           发布于 <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
           {categories.length > 0 && (
-            <>
-              <span class="meta-icon" aria-hidden="true">◆</span>
+            <span class="meta-group">
               {categories.map((category) => <span class="meta-item">{category}</span>)}
-            </>
+            </span>
           )}
           {postTags.length > 0 && (
-            <>
-              <span class="meta-icon" aria-hidden="true">#</span>
+            <span class="meta-group">
               {postTags.map((tag) => <span class="meta-item">{tag}</span>)}
-            </>
+            </span>
           )}
         </p>
       )}

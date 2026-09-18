@@ -93,7 +93,8 @@ a:hover, a:focus-visible {
 .post-title { margin: 3px 0; font-size: 24px; line-height: 1.25; }
 .post-title a { border-bottom-color: transparent; }
 .post-meta { margin: 10px 0; font-size: 16px; }
-.meta-icon { margin: 0 8px 0 2px; opacity: .78; }
+.meta-group { margin-left: 10px; }
+.meta-group + .meta-group { margin-left: 4px; }
 .meta-item { margin-right: 10px; }
 .post-abstract { padding-top: 5px; font-size: 18px; }
 
