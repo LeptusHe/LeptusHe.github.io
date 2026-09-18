@@ -43,6 +43,9 @@ importers:
       astro-typst:
         specifier: 0.12.4
         version: 0.12.4(@myriaddreamin/typst-ts-node-compiler@0.8.0-rc1)(@myriaddreamin/typst-ts-renderer@0.8.0-rc1)(@myriaddreamin/typst.ts@0.8.0-rc1(@myriaddreamin/typst-ts-renderer@0.8.0-rc1))(astro@6.4.8(@types/node@24.13.5)(lightningcss@1.33.0)(rollup@4.63.3))(cheerio@1.2.0)(rollup@4.63.3)
+      lxgw-wenkai-screen-webfont:
+        specifier: 1.7.0
+        version: 1.7.0
     devDependencies:
       vite:
         specifier: ^8.0.16
@@ -1564,6 +1567,9 @@ packages:
   lru-cache@11.5.2:
     resolution: {integrity: sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==}
     engines: {node: 20 || >=22}
+
+  lxgw-wenkai-screen-webfont@1.7.0:
+    resolution: {integrity: sha512-xvfF4V26Mb335xKg3uxljz+V2nq4F5ek0ku9pmyKgT0Dzo/d2rHi7WpnqgvM9mlXAcAKOrxrcDmUZiIs/ZQ9bQ==}
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -3744,6 +3750,8 @@ snapshots:
   longest-streak@3.1.0: {}
 
   lru-cache@11.5.2: {}
+
+  lxgw-wenkai-screen-webfont@1.7.0: {}
 
   magic-string@0.30.21:
     dependencies:

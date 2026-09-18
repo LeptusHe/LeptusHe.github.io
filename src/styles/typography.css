@@ -1,4 +1,5 @@
-@import url("https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css");
+@import "lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css";
+@import "lxgw-wenkai-screen-webfont/lxgwwenkaiscreenr.css";
 
 @font-face {
   font-family: "FontAwesome";
