@@ -2,7 +2,7 @@
 
 #show: main-zh.with(
   title: "编写可测试的代码-依赖注入",
-  desc: [介绍依赖注入与可测试代码，并比较构造函数注入和 Setter 注入。],
+  desc: [以可测试代码为目标，说明依赖注入如何解除 client 与 service 的直接耦合，并比较构造函数注入和 Setter 注入在 mock 测试与对象状态管理中的适用性。],
   date: "2018-12-13",
   draft: false,
   tags: (

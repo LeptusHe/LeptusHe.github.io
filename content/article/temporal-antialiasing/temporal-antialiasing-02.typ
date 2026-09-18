@@ -2,7 +2,7 @@
 
 #show: main-zh.with(
   title: "Temporal Antialiasing - 02",
-  desc: [分析历史颜色失效、neighborhood clamping、闪烁与模糊问题及其成因。],
+  desc: [分析相机、物体运动与着色变化造成的 History Color 失效，说明 neighborhood clamping、cliping 处理以及 TAA 中闪烁和模糊问题的成因。],
   date: "2019-03-11",
   draft: false,
   tags: (

@@ -3,7 +3,7 @@
 
 #show: main-zh.with(
   title: "Temporal Antialiasing - 01",
-  desc: [介绍时间抗锯齿的采样、投影抖动、历史累积、运动向量与几何边缘处理。],
+  desc: [从几何与着色走样问题出发，介绍时间抗锯齿如何利用跨帧样本提高采样效率，涵盖投影抖动、历史累积、运动向量和几何边缘处理。],
   date: "2019-03-09",
   draft: false,
   tags: (
