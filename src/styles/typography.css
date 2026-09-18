@@ -3,8 +3,7 @@
 :root {
   color: #fff;
   background: #2e405b;
-  font-family: "LXGW WenKai Screen", "Source Sans Pro", "Noto Sans SC", "PingFang SC", sans-serif;
-  font-synthesis: none;
+  font-family: "LXGW WenKai Screen", "Source Sans Pro", "Roboto", "Helvetica", "Helvetica Neue", "Source Han Sans SC", "Source Han Sans TC", "PingFang SC", "PingFang HK", "PingFang TC", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -22,6 +21,10 @@ body {
   background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
   background-size: 6px 6px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .04);
+}
+
+html, body, span, p, h1, h2, h3, h4, h5, h6 {
+  font-family: "LXGW WenKai Screen", "Source Sans Pro", "Roboto", "Helvetica", "Helvetica Neue", "Source Han Sans SC", "Source Han Sans TC", "PingFang SC", "PingFang HK", "PingFang TC", sans-serif;
 }
 
 a {
@@ -57,7 +60,7 @@ a:hover, a:focus-visible {
   padding: 0 0 50px;
   border-bottom: 0;
   border-left: 2px solid #fff;
-  font-family: "Hiragino Mincho ProN", "Source Han Serif SC", serif;
+  font-family: "HiraMinProN-W6", "Source Han Serif CN", "Source Han Serif SC", "Source Han Serif TC", serif;
   font-weight: 800;
   writing-mode: vertical-rl;
   transition: padding .8s ease, background-color .8s ease;
@@ -103,6 +106,7 @@ a:hover, a:focus-visible {
 .post-content { overflow-wrap: anywhere; }
 .post-content > :first-child { margin-top: 0; }
 .post-content > nav, .post-content .outline > nav { display: none; }
+.post-content .typst-content-link.shiroa-heading-hash { display: none !important; }
 .post-content h1, .post-content h2, .post-content h3, .post-content h4 { margin: 1.2em 0 .45em; line-height: 1.25; }
 .post-content h1 { font-size: 42px; }
 .post-content h2 { font-size: 36px; }
