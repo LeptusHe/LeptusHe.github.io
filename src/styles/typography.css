@@ -14,6 +14,7 @@
   color: #fff;
   background: #2e405b;
   font-family: "LXGW WenKai Screen", "Source Sans Pro", "Roboto", "Helvetica", "Helvetica Neue", "Source Han Sans SC", "Source Han Sans TC", "PingFang SC", "PingFang HK", "PingFang TC", sans-serif;
+  --font-code: "Cascadia Mono", "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 * { box-sizing: border-box; }
@@ -224,14 +225,26 @@ a:hover, a:focus-visible {
 .post-content table { max-width: 100%; border-collapse: collapse; }
 .post-content th, .post-content td { padding: .4em .6em; border: 1px solid rgba(255, 255, 255, .35); }
 .post-content pre:not(.zebraw-code-line) { max-width: 100%; padding: 1em; overflow-x: auto; background: rgba(255, 255, 255, .08); }
-.post-content code, .post-content pre:not(.zebraw-code-line) { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; font-size: .9em; }
+.post-content code,
+.post-content pre:not(.zebraw-code-line) {
+  font-family: var(--font-code);
+  font-size: .9em;
+  font-variant-ligatures: none;
+}
 
 /* A muted blue-black panel keeps the code block within Typography's dark
    palette while remaining distinct from the article card. */
 .post-content .code-image.themed { margin: 1em 0; border-radius: .34em; overflow: hidden; }
 .post-content .code-image.themed > .dark { display: block; }
 .post-content .code-image.themed > .light { display: none; }
-.post-content .code-image.themed .zebraw-code-block { font-size: .8em !important; }
+.post-content .code-image.themed .zebraw-code-block {
+  font-family: var(--font-code);
+  font-size: .86em !important;
+  font-variant-ligatures: none;
+}
+.post-content code *,
+.post-content pre *,
+.post-content .code-image.themed .zebraw-code-block * { font-family: inherit !important; }
 .post-content .code-image.themed .dark .zebraw-code-line-container { background: #1b2a3b !important; }
 .post-content .code-image.themed .zebraw-code-line {
   max-width: none;
@@ -240,7 +253,7 @@ a:hover, a:focus-visible {
   overflow: visible;
   background: transparent;
   color: #d7e0ec;
-  font-family: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-code);
   font-size: 1em;
   line-height: 1.5;
 }
@@ -250,7 +263,7 @@ a:hover, a:focus-visible {
   background: #162536;
   border-right: 1px solid #31455c;
   color: #7f91a8 !important;
-  font-family: "SFMono-Regular", "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: var(--font-code);
   font-size: 1em;
   line-height: 1.5;
 }
