@@ -12,7 +12,7 @@ for (const post of await getBlogPosts()) {
   <h1 class="page-title">分类</h1>
   <ul class="taxonomy-list">
     {[...counts.entries()].sort(([a], [b]) => a.localeCompare(b, "zh-CN")).map(([category, count]) => (
-      <li>{category}<span class="count">({count})</span></li>
+      <li id={category}>{category}<span class="count">({count})</span></li>
     ))}
   </ul>
 </TypographyShell>

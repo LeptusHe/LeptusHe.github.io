@@ -1,6 +1,7 @@
 ---
 import TypographyShell from "$layouts/TypographyShell.astro";
 import { getCategories, getPostTags } from "$lib/posts";
+import { kUrlBase } from "$consts";
 
 interface Props {
   id: string | false;
@@ -21,18 +22,18 @@ const postTags = getPostTags({ data: { tags } } as never);
       <h1 class="post-title">{title}</h1>
       {id && (
         <p class="post-meta">
-          发布于 <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
+          <span class="date meta-item">发布于&nbsp;<time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time></span>
           {categories.length > 0 && (
-            <>
-              <span class="meta-icon meta-category" aria-hidden="true"></span>
-              {categories.map((category) => <span class="meta-item">{category}</span>)}
-            </>
+            <span class="meta-item">
+              <span class="meta-icon meta-category" aria-hidden="true"></span>&nbsp;
+              {categories.map((category) => <><a class="a-tag" href={`${kUrlBase}/categories/#${encodeURIComponent(category)}`}>{category}</a>&nbsp;</>)}
+            </span>
           )}
           {postTags.length > 0 && (
-            <>
-              <span class="meta-icon meta-tag" aria-hidden="true"></span>
-              {postTags.map((tag) => <span class="meta-item">{tag}</span>)}
-            </>
+            <span class="meta-item">
+              <span class="meta-icon meta-tag" aria-hidden="true"></span>&nbsp;
+              {postTags.map((tag) => <><a class="a-tag" href={`${kUrlBase}/tags/#${encodeURIComponent(tag)}`}>{tag}</a>&nbsp;</>)}
+            </span>
           )}
         </p>
       )}

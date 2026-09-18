@@ -108,14 +108,15 @@ a:hover, a:focus-visible {
 .post-meta { margin: 10px 0; font-size: 16px; }
 .meta-icon {
   display: inline-block;
-  margin: 0 8px 0 10px;
+  margin: 0;
   font-family: "FontAwesome" !important;
   font-style: normal;
   font-weight: normal;
 }
 .meta-category::before { content: "\f07b"; }
 .meta-tag::before { content: "\f02b"; }
-.meta-item { margin-right: 10px; }
+.post-meta .meta-item { margin: 0 10px 0 0; }
+.post-meta .a-tag { border-bottom-color: currentColor; }
 .post-abstract { padding-top: 5px; font-size: 18px; }
 
 .post-container-detail { margin: 0 0 20px; }
