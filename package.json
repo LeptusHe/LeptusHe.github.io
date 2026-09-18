@@ -11,6 +11,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "test:typst-html": "node --test tests/typst-html-components.test.mjs",
+    "test:interface": "node --test tests/typography-interface.test.mjs",
     "preview": "astro preview",
     "create:post": "node scripts/create-file.mjs blog-post",
     "create:archive": "node scripts/create-file.mjs archive-post",

@@ -1,18 +1,18 @@
 ---
 import TypographyShell from "$layouts/TypographyShell.astro";
+import TypographyTaxonomyIndex from "$components/TypographyTaxonomyIndex.astro";
 import { getBlogPosts, getCategories } from "$lib/posts";
 
-const counts = new Map<string, number>();
-for (const post of await getBlogPosts()) {
-  for (const category of getCategories(post)) counts.set(category, (counts.get(category) ?? 0) + 1);
+const groupedPosts = new Map<string, Awaited<ReturnType<typeof getBlogPosts>>>();
+for (const post of (await getBlogPosts()).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())) {
+  for (const category of getCategories(post)) {
+    groupedPosts.set(category, [...(groupedPosts.get(category) ?? []), post]);
+  }
 }
+const groups = [...groupedPosts.entries()].sort(([a], [b]) => a.localeCompare(b, "zh-CN"));
 ---
 
 <TypographyShell title="分类 | Lights and Shadows" active="categories">
   <h1 class="page-title">分类</h1>
-  <ul class="taxonomy-list">
-    {[...counts.entries()].sort(([a], [b]) => a.localeCompare(b, "zh-CN")).map(([category, count]) => (
-      <li id={category}>{category}<span class="count">({count})</span></li>
-    ))}
-  </ul>
+  <TypographyTaxonomyIndex {groups} variant="categories" />
 </TypographyShell>

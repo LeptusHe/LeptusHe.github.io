@@ -1,0 +1,44 @@
+---
+import { kUrlBase } from "$consts";
+import { getLegacyPostPath, type BlogPost } from "$lib/posts";
+
+interface Props {
+  groups: Array<[string, BlogPost[]]>;
+  variant: "categories" | "tags";
+}
+
+const { groups, variant } = Astro.props;
+---
+
+{
+  variant === "tags" && (
+    <nav class="taxonomy-jump-list" aria-label="标签索引">
+      {groups.map(([name, posts]) => (
+        <a href={`#${name}`} aria-label={`${name}，${posts.length} 篇文章`}>
+          {name}<span aria-hidden="true">{posts.length}</span>
+        </a>
+      ))}
+    </nav>
+  )
+}
+
+<div class={`taxonomy-groups taxonomy-groups-${variant}`}>
+  {
+    groups.map(([name, posts]) => (
+      <section class="taxonomy-group" id={name}>
+        <header class="taxonomy-heading">
+          <h2>{name}</h2>
+          <span class="taxonomy-count">{posts.length} 篇</span>
+        </header>
+        <ol class="taxonomy-posts">
+          {posts.map((post) => (
+            <li>
+              <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
+              <a href={`${kUrlBase}${getLegacyPostPath(post)}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))
+  }
+</div>

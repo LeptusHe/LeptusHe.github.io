@@ -7,6 +7,7 @@ interface Props {
 
 const { active } = Astro.props;
 const linkClass = (name: Props["active"]) => (active === name ? "current" : undefined);
+const currentYear = new Date().getFullYear();
 ---
 
 <aside class="side-container" aria-label="网站导航">
@@ -27,7 +28,7 @@ const linkClass = (name: Props["active"]) => (active === name ? "current" : unde
       </li>
     </ul>
     <footer>
-      <p>© 2024 Leptus He</p>
+      <p>© {currentYear} Leptus He</p>
       <p>Theme <a href="https://github.com/SumiMakito/hexo-theme-typography">Typography</a></p>
       <p class="site-nav-footer">Published with Astro + Typst</p>
     </footer>
