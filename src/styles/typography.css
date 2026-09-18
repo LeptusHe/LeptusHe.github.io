@@ -147,7 +147,35 @@ a:hover, a:focus-visible {
 .post-content pre { max-width: 100%; padding: 1em; overflow-x: auto; background: rgba(255, 255, 255, .08); }
 .post-content code, .post-content pre { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; font-size: .9em; }
 .post-content blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid #fff; }
-.post-content .block-equation { max-width: 100%; overflow-x: auto; }
+.post-content math[display="block"] {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.2em 0;
+  text-align: center;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.post-content math {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.post-content mtable.multiline-equation.aligned > mtr > mtd:first-child {
+  text-align: right;
+}
+
+.post-content mtable.multiline-equation.aligned > mtr > mtd:not(:first-child) {
+  text-align: left;
+}
+
+.post-content .block-equation {
+  max-width: 100%;
+  overflow-x: auto;
+}
 
 .page-title { margin: 0 0 24px; font-size: 42px; }
 .taxonomy-list { margin: 0; padding: 0; list-style: none; }
@@ -191,4 +219,5 @@ a:hover, a:focus-visible {
   .post-content h2 { font-size: 28px; }
   .post-content h3 { font-size: 23px; }
   .post-content h4 { font-size: 19px; }
+  .post-content math[display="block"] { font-size: .9em; }
 }
