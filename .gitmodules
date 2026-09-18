@@ -10,8 +10,8 @@
 	url = https://github.com/LeptusHe/hexo-theme-typography.git
 [submodule "typ"]
 	path = typ
-	url = https://github.com/Myriad-Dreamin/typ.git
-	branch = main
+	url = https://github.com/LeptusHe/typ.git
+	branch = leptushe/blog-code-style
 [submodule "packages/tylant"]
 	path = packages/tylant
 	url = https://github.com/Myriad-Dreamin/tylant.git
