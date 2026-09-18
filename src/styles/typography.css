@@ -1,5 +1,13 @@
 @import url("https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css");
 
+@font-face {
+  font-family: "FontAwesome";
+  src: url("../../themes/typography/source/fonts/fontawesome-webfont.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
 :root {
   color: #fff;
   background: #2e405b;
@@ -93,8 +101,15 @@ a:hover, a:focus-visible {
 .post-title { margin: 3px 0; font-size: 24px; line-height: 1.25; }
 .post-title a { border-bottom-color: transparent; }
 .post-meta { margin: 10px 0; font-size: 16px; }
-.meta-group { margin-left: 10px; }
-.meta-group + .meta-group { margin-left: 4px; }
+.meta-icon {
+  display: inline-block;
+  margin: 0 8px 0 10px;
+  font-family: "FontAwesome" !important;
+  font-style: normal;
+  font-weight: normal;
+}
+.meta-category::before { content: "\f07b"; }
+.meta-tag::before { content: "\f02b"; }
 .meta-item { margin-right: 10px; }
 .post-abstract { padding-top: 5px; font-size: 18px; }
 
