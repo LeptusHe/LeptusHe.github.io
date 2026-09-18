@@ -1,0 +1,11 @@
+packages:
+  - .
+  - packages/tylant/packages/*
+  - '!**/test/**'
+
+allowBuilds:
+  esbuild: set this to true or false
+  sharp: set this to true or false
+
+patchedDependencies:
+  typstx@0.0.1: patches/typstx@0.0.1.patch

@@ -1,0 +1,31 @@
+---
+import TypographyShell from "$layouts/TypographyShell.astro";
+import { getBlogPosts, getLegacyPostPath } from "$lib/posts";
+import { kUrlBase } from "$consts";
+
+const posts = (await getBlogPosts()).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const years = new Map<number, typeof posts>();
+for (const post of posts) {
+  const year = post.data.date.getUTCFullYear();
+  years.set(year, [...(years.get(year) ?? []), post]);
+}
+---
+
+<TypographyShell title="归档 | Lights and Shadows" active="archive">
+  <h1 class="page-title">归档</h1>
+  {
+    [...years.entries()].sort(([a], [b]) => b - a).map(([year, yearPosts]) => (
+      <section class="archive-year">
+        <h2>{year}</h2>
+        <ul>
+          {yearPosts.map((post) => (
+            <li>
+              <time class="archive-date" datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(5, 10)}</time>
+              <a href={`${kUrlBase}${getLegacyPostPath(post)}`}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</TypographyShell>

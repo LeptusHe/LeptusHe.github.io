@@ -1,0 +1,14 @@
+---
+import Layout from "$layouts/BlogPost.astro";
+// @ts-ignore
+import AboutContent from "../../content/other/about.typ?html&body";
+---
+
+<Layout
+  id={false}
+  title="关于"
+  description="Leptus He 的个人技术博客，记录图形渲染、数学与软件工程。"
+  date={new Date("2018-12-13")}
+>
+  <AboutContent />
+</Layout>

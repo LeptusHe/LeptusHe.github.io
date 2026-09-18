@@ -1,0 +1,42 @@
+---
+import TypographyShell from "$layouts/TypographyShell.astro";
+import { getCategories, getPostTags } from "$lib/posts";
+
+interface Props {
+  id: string | false;
+  title: string;
+  description?: string;
+  date: Date;
+  tags?: string[];
+}
+
+const { id, title, description, date, tags = [] } = Astro.props;
+const categories = getCategories({ data: { tags } } as never);
+const postTags = getPostTags({ data: { tags } } as never);
+---
+
+<TypographyShell title={`${title} | Lights and Shadows`} description={description}>
+  <article class="post-container-detail">
+    <header>
+      <h1 class="post-title">{title}</h1>
+      {id && (
+        <p class="post-meta">
+          发布于 <time datetime={date.toISOString()}>{date.toISOString().slice(0, 10)}</time>
+          {categories.length > 0 && (
+            <>
+              <span class="meta-icon" aria-hidden="true">◆</span>
+              {categories.map((category) => <span class="meta-item">{category}</span>)}
+            </>
+          )}
+          {postTags.length > 0 && (
+            <>
+              <span class="meta-icon" aria-hidden="true">#</span>
+              {postTags.map((tag) => <span class="meta-item">{tag}</span>)}
+            </>
+          )}
+        </p>
+      )}
+    </header>
+    <div class="post-content"><slot /></div>
+  </article>
+</TypographyShell>

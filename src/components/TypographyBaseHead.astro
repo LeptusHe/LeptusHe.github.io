@@ -1,0 +1,19 @@
+---
+import "$styles/typography.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="canonical" href={canonical} />
+<link rel="alternate" type="application/rss+xml" title="Walking in Pixels" href="/rss.xml" />
+<title>{title}</title>

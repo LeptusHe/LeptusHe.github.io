@@ -1,0 +1,30 @@
++// Compatibility helpers for articles authored for the previous Hexo renderer.
+// Keep this layer small: page layout and site metadata belong to Tylant.
+
+#import "@preview/quick-maths:0.1.0": shorthands
+
+#let Integral(lower, upper, integrand, dif: none) = if dif == none {
+  $integral_(#lower)^(#upper) #integrand$
+} else {
+  $integral_(#lower)^(#upper) #integrand dif #dif$
+}
+
+#let cIntegral(integrand) = $integral #integrand$
+
+#let im(body) = strong(body)
+
+#let callout(kind, body, title: none) = block(
+  width: 100%,
+  inset: 0.8em,
+  stroke: (left: 3pt + rgb("#cf829e")),
+  [
+    *#kind#if title != none [：#title]*
+    #linebreak()
+    #body
+  ],
+)
+
+#let proof(body) = callout("证明", body)
+#let definition(title, body) = callout("定义", body, title: title)
+#let lemma(title, body) = callout("引理", body, title: title)
+

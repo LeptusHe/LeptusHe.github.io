@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#16181d"/>
+  <g fill="#f2b84b">
+    <rect x="96" y="116" width="72" height="72"/>
+    <rect x="176" y="196" width="72" height="72"/>
+    <rect x="96" y="276" width="72" height="72"/>
+    <rect x="176" y="356" width="72" height="72"/>
+  </g>
+  <text x="310" y="292" fill="#f6f3ea" font-family="system-ui, sans-serif" font-size="88" font-weight="700">Walking in Pixels</text>
+  <text x="314" y="360" fill="#aeb4bf" font-family="system-ui, sans-serif" font-size="34">Rendering · Mathematics · Software Engineering</text>
+</svg>

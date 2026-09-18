@@ -1,0 +1,39 @@
+---
+import type { BlogPost } from "$lib/posts";
+import { getCategories, getPostTags, getLegacyPostPath } from "$lib/posts";
+import { kUrlBase } from "$consts";
+
+interface Props {
+  posts: BlogPost[];
+}
+
+const { posts } = Astro.props;
+---
+
+<section class="post-list" aria-label="文章列表">
+  {
+    posts.map((post) => (
+      <article class="post-container">
+        <h2 class="post-title">
+          <a class="a-title" href={`${kUrlBase}${getLegacyPostPath(post)}`}>{post.data.title}</a>
+        </h2>
+        <p class="post-meta">
+          发布于 <time datetime={post.data.date.toISOString()}>{post.data.date.toISOString().slice(0, 10)}</time>
+          {getCategories(post).length > 0 && (
+            <>
+              <span class="meta-icon" aria-hidden="true">◆</span>
+              {getCategories(post).map((category) => <span class="meta-item">{category}</span>)}
+            </>
+          )}
+          {getPostTags(post).length > 0 && (
+            <>
+              <span class="meta-icon" aria-hidden="true">#</span>
+              {getPostTags(post).map((tag) => <span class="meta-item">{tag}</span>)}
+            </>
+          )}
+        </p>
+        {post.data.description && <div class="post-abstract">{post.data.description}</div>}
+      </article>
+    ))
+  }
+</section>

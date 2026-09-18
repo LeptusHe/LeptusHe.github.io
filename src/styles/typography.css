@@ -1,0 +1,156 @@
+@import url("https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css");
+
+:root {
+  color: #fff;
+  background: #2e405b;
+  font-family: "LXGW WenKai Screen", "Source Sans Pro", "Noto Sans SC", "PingFang SC", sans-serif;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #2e405b; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
+  background-color: #2e405b;
+  background-image: linear-gradient(rgba(255, 255, 255, .045) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .045) 1px, transparent 1px);
+  background-size: 6px 6px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .04);
+}
+
+a {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  text-decoration: none;
+  transition: color .3s ease, background-color .3s ease;
+}
+
+a:hover, a:focus-visible {
+  color: #2e405b;
+  border-bottom-color: transparent;
+  background: #fff;
+  outline: none;
+}
+
+.typography-stage { max-width: 1170px; min-height: 100vh; margin: 0 auto; }
+
+.side-container {
+  position: fixed;
+  top: 0;
+  right: max(calc((100vw - 1170px) / 2), 0px);
+  width: 25%;
+  max-width: 293px;
+  height: 100vh;
+  padding: 80px 20px;
+}
+
+.site-title {
+  display: block;
+  width: fit-content;
+  margin-left: -2px;
+  padding: 0 0 50px;
+  border-bottom: 0;
+  border-left: 2px solid #fff;
+  font-family: "Hiragino Mincho ProN", "Source Han Serif SC", serif;
+  font-weight: 800;
+  writing-mode: vertical-rl;
+  transition: padding .8s ease, background-color .8s ease;
+}
+
+.site-title:hover { padding: 15px 0 35px; border-bottom: 0; }
+.site-title span { display: block; line-height: 1; margin-left: 10px; }
+.site-title-large { font-size: 50px; }
+.site-title-small { padding-top: 1px; font-size: 30px; }
+
+.site-title-links { position: fixed; bottom: 20px; padding: 60px 0; font-weight: 700; }
+.site-title-links ul { margin: 0; padding: 0; list-style: none; }
+.site-title-links li { display: block; margin: 5px 0; }
+.site-title-links a.current { border-bottom-width: 3px; }
+.site-title-links .soc { margin-top: 12px; }
+.site-title-links .soc a { margin-right: 10px; border-bottom-color: transparent; }
+.site-title-links footer { margin-top: 10px; font-size: 12px; line-height: 1.45; }
+.site-title-links footer p { margin: 0; }
+
+.main-container {
+  width: 75%;
+  min-height: 100vh;
+  padding: 80px 40px;
+  overflow: hidden;
+}
+
+.post-container { margin: 0 0 20px; padding: 25px; border-radius: 30px; background: #253549; box-shadow: 2px 2px 2px 2px #161823; }
+.post-container, .post-container * { color: #fff; }
+.post-container a:hover { color: #2e405b; background: #fff; }
+.post-title { margin: 3px 0; font-size: 24px; line-height: 1.25; }
+.post-title a { border-bottom-color: transparent; }
+.post-meta { margin: 10px 0; font-size: 16px; }
+.meta-icon { margin: 0 8px 0 2px; opacity: .78; }
+.meta-item { margin-right: 10px; }
+.post-abstract { padding-top: 5px; font-size: 18px; }
+
+.post-container-detail { margin: 0 0 20px; }
+.post-container-detail > header { margin-bottom: 28px; }
+.post-container-detail .post-title { font-size: 34px; }
+.post-container-detail .post-title a { border-bottom: 0; }
+.post-container-detail .post-title a:hover { color: #2e405b; background: #fff; }
+
+.post-content { overflow-wrap: anywhere; }
+.post-content > :first-child { margin-top: 0; }
+.post-content > nav, .post-content .outline > nav { display: none; }
+.post-content h1, .post-content h2, .post-content h3, .post-content h4 { margin: 1.2em 0 .45em; line-height: 1.25; }
+.post-content h1 { font-size: 42px; }
+.post-content h2 { font-size: 36px; }
+.post-content h3 { font-size: 30px; }
+.post-content h4 { font-size: 24px; }
+.post-content p { margin: 0 0 .85em; }
+.post-content img { display: block; max-width: 100%; height: auto; margin: 1.2em auto; }
+.post-content figure { max-width: 100%; margin: 1.2em 0; overflow-x: auto; }
+.post-content figcaption { text-align: center; }
+.post-content table { max-width: 100%; border-collapse: collapse; }
+.post-content th, .post-content td { padding: .4em .6em; border: 1px solid rgba(255, 255, 255, .35); }
+.post-content pre { max-width: 100%; padding: 1em; overflow-x: auto; background: rgba(255, 255, 255, .08); }
+.post-content code, .post-content pre { font-family: ui-monospace, Menlo, Monaco, Consolas, monospace; font-size: .9em; }
+.post-content blockquote { margin: 1em 0; padding-left: 1em; border-left: 3px solid #fff; }
+.post-content .block-equation { max-width: 100%; overflow-x: auto; }
+
+.page-title { margin: 0 0 24px; font-size: 42px; }
+.taxonomy-list { margin: 0; padding: 0; list-style: none; }
+.taxonomy-list li { margin: 8px 0; }
+.taxonomy-list .count { margin-left: 8px; font-size: 14px; }
+.archive-year { margin: 0 0 28px; }
+.archive-year h2 { margin: 0 0 8px; }
+.archive-year ul { margin: 0; padding: 0; list-style: none; }
+.archive-year li { margin: 7px 0; }
+.archive-date { display: inline-block; min-width: 6.2em; }
+
+@media (max-width: 768px), (max-height: 600px) {
+  body { font-size: 16px; line-height: 1.55; }
+  .typography-stage { display: flex; flex-direction: column; }
+  .side-container { position: relative; right: auto; width: 100%; max-width: none; height: auto; padding: 40px 30px 0; text-align: center; }
+  .site-title { width: 100%; margin: 0; padding: 0; border-left: 0; writing-mode: horizontal-tb; text-align: center; }
+  .site-title:hover { padding: 0; color: #fff; background: transparent; }
+  .site-title span { display: inline; margin: 0; text-align: center; }
+  .site-title-large { font-size: 38px; }
+  .site-title-small { margin-left: 10px; padding: 0; font-size: 22px; }
+  .site-title-links { position: static; padding: 10px 0; margin: 10px 0; text-align: center; }
+  .site-title-links li { display: inline; margin: 0 3px; }
+  .site-title-links .soc { display: block; margin: 8px 0 0; }
+  .site-title-links footer { padding: 20px 0 35px; }
+  .site-nav-footer { display: none; }
+  .main-container { width: 100%; min-height: auto; padding: 20px 30px 60px; overflow: visible; }
+  .post-container { padding: 20px; border-radius: 22px; }
+  .post-title { font-size: 20px; }
+  .post-meta { font-size: 14px; }
+  .post-abstract { font-size: 16px; }
+  .post-container-detail .post-title, .page-title { font-size: 32px; }
+  .post-content h1 { font-size: 34px; }
+  .post-content h2 { font-size: 28px; }
+  .post-content h3 { font-size: 23px; }
+  .post-content h4 { font-size: 19px; }
+}

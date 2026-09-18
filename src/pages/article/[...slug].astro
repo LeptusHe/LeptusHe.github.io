@@ -1,0 +1,13 @@
+---
+import { getBlogPosts, getLegacyPostPath } from "$lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { destination: getLegacyPostPath(post) },
+  }));
+}
+const { destination } = Astro.props;
+return Astro.redirect(encodeURI(destination), 301);
+---

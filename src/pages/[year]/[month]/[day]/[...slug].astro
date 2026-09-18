@@ -1,0 +1,29 @@
+---
+import { render } from "astro:content";
+
+import BlogPost from "$layouts/BlogPost.astro";
+import { getBlogPosts, type BlogPost as BlogPostEntry } from "$lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => {
+    const date = post.data.date;
+    return {
+      params: {
+        year: String(date.getUTCFullYear()),
+        month: String(date.getUTCMonth() + 1).padStart(2, "0"),
+        day: String(date.getUTCDate()).padStart(2, "0"),
+        slug: post.id,
+      },
+      props: post,
+    };
+  });
+}
+
+const post = Astro.props as BlogPostEntry;
+const { Content } = await render(post);
+---
+
+<BlogPost {...{ id: post.id }} {...post.data}>
+  <Content />
+</BlogPost>

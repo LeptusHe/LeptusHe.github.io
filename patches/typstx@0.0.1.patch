@@ -1,0 +1,34 @@
+diff --git a/lib/core.js b/lib/core.js
+index 23a98a49b9a587395b2343bb25a5cfa3e5fc99a1..2117b5eabf695352063e5e1b7dd33aa21f974d20 100644
+--- a/lib/core.js
++++ b/lib/core.js
+@@ -190,12 +190,18 @@ export const rehypeTransformJsxInTypst = () => {
+   // find all html.elem("script", attrs: ("data-jsx": "import Button from 'Button.jsx;'"))
+   // and transform them to html.elem("script", attrs: ("data-jsx": "import Button from 'Button.jsx;'"))
+   function compileJsx(node) {
++    // Typst's HTML output can contain empty children for some legacy content.
++    // Ignore them instead of aborting the entire Astro build.
++    if (!node) return node
+     if (node.type === 'element' && node.tagName === 'script') {
+-      let hast = jsx2hast(node.properties['data-jsx'])
++      const jsx = node.properties?.['data-jsx']
++      if (!jsx) return null
++      let hast = jsx2hast(jsx)
+       if (!hast) {
+         throw new Error('Failed to extract jsx from script')
+       }
+-      hast = hast.children[0]
++      hast = hast.children?.[0]
++      if (!hast) return null
+       if (hast.type === 'mdxjsEsm' && Array.isArray(hast.data.estree.body)) {
+         for (const child of hast.data.estree.body) {
+           if (child.type !== 'ImportDeclaration') continue
+@@ -207,7 +213,7 @@ export const rehypeTransformJsxInTypst = () => {
+       return hast
+     }
+     if (node.children) {
+-      node.children = node.children.map(compileJsx)
++      node.children = node.children.map(compileJsx).filter(Boolean)
+     }
+     return node
+   }

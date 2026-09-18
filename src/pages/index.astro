@@ -1,0 +1,15 @@
+---
+import TypographyPostList from "$components/TypographyPostList.astro";
+import TypographyShell from "$layouts/TypographyShell.astro";
+import { kSiteDescription } from "$consts";
+import { getBlogPosts } from "$lib/posts";
+
+const posts = (await getBlogPosts()).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+---
+
+<TypographyShell title="Lights and Shadows" description={kSiteDescription} active="home">
+  <TypographyPostList {posts} />
+</TypographyShell>

@@ -1,0 +1,29 @@
+---
+import TypographyBaseHead from "$components/TypographyBaseHead.astro";
+import TypographySidebar from "$components/TypographySidebar.astro";
+import { kBaiduVeriCode, kSiteDescription } from "$consts";
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: "home" | "archive" | "categories" | "tags" | "about";
+}
+
+const { title, description = kSiteDescription, active } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <TypographyBaseHead title={title} description={description} />
+    {kBaiduVeriCode && <meta name="baidu-site-verification" content={kBaiduVeriCode} />}
+  </head>
+  <body>
+    <div class="typography-stage">
+      <TypographySidebar {active} />
+      <main class="main-container">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+import { kSiteSourceUrl, kUrlBase } from "$consts";
+
+interface Props {
+  active?: "home" | "archive" | "categories" | "tags" | "about";
+}
+
+const { active } = Astro.props;
+const linkClass = (name: Props["active"]) => (active === name ? "current" : undefined);
+---
+
+<aside class="side-container" aria-label="网站导航">
+  <a class="site-title vertical-text" href={kUrlBase || "/"} aria-label="返回首页">
+    <span class="site-title-large">Lights and Shadows</span>
+    <span class="site-title-small">魔泡树的光与影</span>
+  </a>
+
+  <nav class="site-title-links" aria-label="主导航">
+    <ul>
+      <li><a class={linkClass("home")} href={kUrlBase || "/"}>首页</a></li>
+      <li><a class={linkClass("archive")} href={`${kUrlBase}/archive/`}>归档</a></li>
+      <li><a class={linkClass("categories")} href={`${kUrlBase}/categories/`}>分类</a></li>
+      <li><a class={linkClass("tags")} href={`${kUrlBase}/tags/`}>标签</a></li>
+      <li class="soc">
+        {kSiteSourceUrl && <a href={kSiteSourceUrl} rel="me">GitHub</a>}
+        <a href={`${kUrlBase}/rss.xml`}>RSS</a>
+      </li>
+    </ul>
+    <footer>
+      <p>© 2024 Leptus He</p>
+      <p>Theme <a href="https://github.com/SumiMakito/hexo-theme-typography">Typography</a></p>
+      <p class="site-nav-footer">Published with Astro + Typst</p>
+    </footer>
+  </nav>
+</aside>
