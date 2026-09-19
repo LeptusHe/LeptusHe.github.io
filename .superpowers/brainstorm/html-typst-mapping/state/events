@@ -1,1 +1,0 @@
-{"type":"click","text":"目标：Typst 输出语义组件，CSS 只呈现其视觉\n        \n          1.傅里叶变换\n          周期函数可以用傅里叶级数表示，但是无法表示非周期函数。\n          1.1.周期离散信号的表示\n          \n            证明如下：\n            这里是证明内容与公式。","choice":"semantic-html","id":null,"timestamp":1789747551744}
