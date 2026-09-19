@@ -34,3 +34,35 @@ test("home cards preserve the original dimensional surface", async () => {
   assert.match(css, /\.post-container\s*\{[^}]*background:\s*#253549;/s);
   assert.match(css, /\.post-container\s*\{[^}]*box-shadow:\s*2px 2px 2px 2px #161823;/s);
 });
+
+test("background grid remains legible without competing with article cards", async () => {
+  const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
+
+  assert.match(css, /rgba\(255, 255, 255, \.065\) 1px/);
+  assert.match(css, /background-size:\s*6px 6px;/);
+});
+
+test("home cards use a compact reading measure and content-led excerpt height", async () => {
+  const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
+
+  assert.match(css, /\.post-list\s*\{[^}]*max-width:\s*680px;/s);
+  assert.match(css, /\.post-list\s*\{[^}]*margin-inline:\s*auto;/s);
+  assert.doesNotMatch(css, /\.post-abstract\s*\{[^}]*min-height:/s);
+});
+
+test("mobile site title keeps the original theme proportions", async () => {
+  const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
+  const mobileLayout = css.match(/@media \(max-width: 768px\), \(max-height: 600px\) \{([\s\S]*)\}\s*$/)?.[1] ?? "";
+
+  assert.match(mobileLayout, /\.site-title-large\s*\{[^}]*font-size:\s*38px;/s);
+  assert.match(mobileLayout, /\.site-title-small\s*\{[^}]*font-size:\s*22px;/s);
+});
+
+test("short desktop windows keep the full-size site title", async () => {
+  const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
+  const compactStart = css.indexOf("@media only screen and (max-height: 860px)");
+  const mobileStart = css.indexOf("@media (max-width: 768px), (max-height: 600px)");
+  const compactLayout = css.slice(compactStart, mobileStart);
+
+  assert.doesNotMatch(compactLayout, /\.site-title-(?:large|small)\s*\{[^}]*font-size:/s);
+});
