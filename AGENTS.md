@@ -1,30 +1,50 @@
-# Blog authoring guide
+# 博客写作与发布规范
 
-## Scope
+## 适用范围
 
-- Articles are authored in `content/article/**/*.typ`.
-- New public images go in `public/images/articles/<slug>/`.
-- Existing migrated images may remain beside their legacy articles.
-- Treat `typ/` and `packages/tylant/` as pinned upstream submodules. Do not edit them for ordinary article work.
-- Do not publish, push, merge, or change GitHub Pages settings unless the user explicitly asks.
+- 文章源文件位于 `content/article/**/*.typ`。
+- 新增公开图片放在 `public/images/articles/<slug>/`；已迁移文章的旧图片可以继续保留在原文章旁边。
+- `typ/` 和 `packages/tylant/` 是固定版本的模板与上游子模块，日常撰写文章时不要修改。
+- 遵循 `readme.md` 中的写作与发布流程。AI 可以起草、预览、验证，并将完成的文章修改提交到本地工作分支。只有用户明确要求时才推送。用户要求发布某篇文章，即授权执行下文中该文章的发布步骤，不包含无关修改或 GitHub Pages 设置变更。
 
-## Article contract
+## 文章约定
 
-- Import `"/site/blog.typ": *` and use `main-zh` for Chinese articles.
-- Provide `title`, `desc`, ISO `date`, `draft`, and `tags`.
-- Reuse tags from `blog-tags` in `site/blog.typ`; add a deliberate canonical tag there instead of creating spelling variants.
-- New posts start with `draft: true`. Production builds exclude drafts; local development includes them. Set `draft: false` only when the article is ready to publish.
-- Keep the article id/path stable after publication. Public permalinks are derived as `/<year>/<month>/<day>/<article-id>/` to preserve the former Hexo URLs.
+- 导入 `"/site/blog.typ": *`，中文文章使用 `main-zh`。
+- 填写 `title`、`desc`、ISO 格式的 `date`、`draft` 和 `tags`。
+- 优先复用 `site/blog.typ` 中的 `blog-tags`。需要新增标签时，在该处定义统一名称，避免同一标签出现多种拼写。
+- 新文章默认使用 `draft: true`。开发预览包含草稿，生产构建排除草稿。只有用户明确要求发布该文章后，才改为 `draft: false`。认可文案或要求提交不等于授权发布。
+- 文章发布后保持标识和路径稳定。永久链接由 `/<year>/<month>/<day>/<article-id>/` 生成，以兼容原 Hexo 链接。
 
-## Writing style
+## 写作要求
 
-- Write concise Chinese technical prose with source-faithful English identifiers.
-- Separate observed evidence, interpretation, and conclusion. State uncertainty and validation boundaries explicitly.
-- Prefer semantic headings, figures, equations, links, and code blocks over visual spacing tricks.
-- Add alt/caption text that explains why an image matters.
+- 使用简洁的中文技术表述，英文标识符与来源保持一致。
+- 区分观察到的证据、解释和结论，明确说明不确定性与验证范围。
+- 优先使用具有语义的标题、插图、公式、链接和代码块，避免通过手工空白实现排版。
+- 为图片补充替代文本或图注，说明图片所表达的要点。
+- 使用用户提供的资料和可核实的参考文献。不得编造引用、性能数据、实验或作者的亲身经历。发布前指出尚未核实的事实问题。
 
-## Validation
+## AI 写作流程
 
-- Run `pnpm build` after changing articles, templates, routes, or metadata.
-- Check the generated article body, images, equations, internal links, canonical URL, RSS entry, and sitemap entry.
-- Preserve existing content and unrelated user changes. Avoid large stylistic rewrites during a migration or compatibility fix.
+- 根据用户需求明确主题、读者、范围和现有资料；只对实质影响文章的缺失信息提问。
+- 编辑前检查工作区和当前分支。日常文章工作使用工作分支，保留无关修改，不直接向 `main` 提交文章修改。
+- 使用 `pnpm create:post <slug> "文章标题"` 创建文章，沿用仓库模板；命令中不添加独立的 `--` 参数。核对脚本生成的 UTC 日期是否符合预期发布日期。
+- 使用 `pnpm dev` 预览草稿，并向用户提供实际的本地地址。`pnpm preview` 展示生产构建结果，无法显示已被排除的草稿。
+- 需要时在 `site/blog.typ` 中新增统一标签；新增分类还需登记到 `src/lib/posts.ts` 的 `categoryTags` 中。
+- 新图片放在 `public/images/articles/<slug>/`，在 Typst 中使用 `/public/images/articles/<slug>/<filename>` 引用。保留已发布资源的现有 URL。
+- 可以在本地提交已完成的文章修改及必要素材，并报告提交和验证结果；不要将提交授权理解为推送授权。
+- `draft: true` 不提供隐私保护：仓库源码以及 `public/` 下的文件仍可能公开。
+
+## 验证要求
+
+- 修改文章、模板、路由或元数据后，先运行 `pnpm build`，再运行 `pnpm test:typst-html` 和 `pnpm test:interface`。测试会读取 `dist/`，不得依赖过期构建产物。
+- 检查生成的文章正文、图片、公式、内部链接、canonical URL、RSS 条目和 sitemap 条目。
+- 保留已有内容和用户的无关修改。迁移或兼容性修复期间，避免大范围改写文章风格。
+
+## 获得明确授权后的发布流程
+
+- 核对获准发布的文章、发布日期、稳定的 slug，以及完整的待发布变更范围。发布单篇文章时，不得顺带发布其他草稿、无关提交或整套迁移。首次将迁移分支上线到 `main`，需要覆盖该迁移范围的授权。
+- 将获准发布的文章改为 `draft: false`，构建并执行上述检查，检查生产预览、RSS 和 sitemap 中的文章条目。已有文章的回归测试不能替代对新文章内容的检查。
+- 获取远端更新，将工作分支 rebase 到 `origin/main`，不创建 merge commit。整合远端变更后重新验证。若冲突涉及需要作者判断的内容，暂停并说明冲突，不擅自丢弃任一侧内容。
+- 仅以 fast-forward 方式更新 `main`，随后正常推送。不得强制推送 `main`。若远端再次更新，重新 fetch、rebase 和验证；不得覆盖本地 `main` 上的无关提交。
+- 检查 GitHub Actions 部署状态和线上文章地址。只有部署及线上检查均成功后，才报告发布成功；否则报告实际状态与失败原因。
+- 推送 `main` 会触发生产部署。手动触发 Pages workflow 同样属于需要授权的发布操作。
