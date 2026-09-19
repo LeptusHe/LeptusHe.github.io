@@ -38,7 +38,7 @@ test("home cards preserve the original dimensional surface", async () => {
 test("background grid remains legible without competing with article cards", async () => {
   const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
 
-  assert.match(css, /rgba\(255, 255, 255, \.065\) 1px/);
+  assert.match(css, /rgba\(255, 255, 255, \.035\) 1px/);
   assert.match(css, /background-size:\s*6px 6px;/);
 });
 
