@@ -42,11 +42,11 @@ test("background grid remains legible without competing with article cards", asy
   assert.match(css, /background-size:\s*6px 6px;/);
 });
 
-test("home cards use a compact reading measure and content-led excerpt height", async () => {
+test("home cards use a wider reading measure and content-led excerpt height", async () => {
   const css = await readFile(new URL("../src/styles/typography.css", import.meta.url), "utf8");
 
-  assert.match(css, /\.post-list\s*\{[^}]*max-width:\s*680px;/s);
-  assert.match(css, /\.post-list\s*\{[^}]*margin-inline:\s*auto;/s);
+  assert.match(css, /\.post-list\s*\{[^}]*max-width:\s*820px;/s);
+  assert.match(css, /\.post-list\s*\{[^}]*margin-right:\s*auto;/s);
   assert.doesNotMatch(css, /\.post-abstract\s*\{[^}]*min-height:/s);
 });
 

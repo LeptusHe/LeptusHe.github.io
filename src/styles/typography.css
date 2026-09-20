@@ -60,8 +60,8 @@ a:hover, a:focus-visible {
   position: fixed;
   top: 0;
   right: max(calc((100vw - 1170px) / 2), 0px);
-  width: 25%;
-  max-width: 293px;
+  width: 16%;
+  max-width: 234px;
   height: 100vh;
   padding: 80px 20px;
 }
@@ -99,13 +99,13 @@ a:hover, a:focus-visible {
 .site-title-links footer p { margin: 0; }
 
 .main-container {
-  width: 75%;
+  width: 84%;
   min-height: 100vh;
-  padding: 80px 40px;
+  padding: 80px 20px;
   overflow: hidden;
 }
 
-.post-list { max-width: 680px; margin-inline: auto; }
+.post-list { max-width: 820px; margin-right: auto; }
 
 .post-container {
   max-width: 100%;
@@ -137,7 +137,7 @@ a:hover, a:focus-visible {
 .post-container .post-meta a { color: #d8e4ee; }
 .post-abstract { padding-top: 4px; color: #d3dde7; font-size: 16.5px; line-height: 1.75; }
 
-.post-container-detail { max-width: 720px; margin: 0 0 20px; }
+.post-container-detail { max-width: 820px; margin: 0 0 20px; }
 .post-container-detail > header { margin-bottom: 28px; }
 .post-container-detail .post-title { font-size: 26px; }
 .post-container-detail .post-title a { border-bottom: 0; }
@@ -163,7 +163,7 @@ a:hover, a:focus-visible {
 
 .post-content {
   color: #d8e3e7;
-  font-size: 15px;
+  font-size: 18px;
   overflow-wrap: anywhere;
 }
 .post-content > :first-child { margin-top: 0; }
@@ -346,6 +346,11 @@ a:hover, a:focus-visible {
   .main-container { padding-top: 40px; padding-bottom: 60px; }
 }
 
+@media (max-width: 900px) and (min-width: 769px) {
+  .side-container { width: 20%; }
+  .main-container { width: 80%; }
+}
+
 @media (max-width: 768px), (max-height: 600px) {
   body { font-size: 16px; line-height: 1.6; }
   .typography-stage { display: flex; flex-direction: column; width: 100%; overflow: hidden; }
@@ -367,7 +372,7 @@ a:hover, a:focus-visible {
   .post-abstract { font-size: 16px; }
   .post-container-detail .post-title, .page-title { font-size: 24px; }
   .post-container-detail .post-meta { font-size: 13px; }
-  .post-content { font-size: 14.5px; }
+  .post-content { font-size: 16px; }
   .post-content h1 { font-size: 24px; }
   .post-content h2 { font-size: 22px; }
   .post-content h3 { font-size: 19px; }
